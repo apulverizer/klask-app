@@ -1,0 +1,135 @@
+<!--
+ Copyright 2016 Google Inc.
+ 
+ Licensed under the Apache License, Version 2.0 (the "License");
+ you may not use this file except in compliance with the License.
+ You may obtain a copy of the License at
+ 
+      http://www.apache.org/licenses/LICENSE-2.0
+ 
+ Unless required by applicable law or agreed to in writing, software
+ distributed under the License is distributed on an "AS IS" BASIS,
+ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ See the License for the specific language governing permissions and
+ limitations under the License.
+-->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Klask</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+  <link rel="manifest" href="/manifest.json">
+</head>
+<body>
+
+  <header class="header">
+    <button id="butBack" class="headerButton mdl-js-ripple-effect" aria-label="Back" onclick="goBack()">
+        <span class="mdl-ripple"></span>
+    </button>
+    <h1 class="header__title">Profile</h1>
+    <button id="butEdit" class="headerButton mdl-js-ripple-effect" aria-label="Edit">
+        <span class="mdl-ripple"></span>
+    </button>
+  </header>
+
+  <main class="main">
+    
+    <ul id="profile_row" class="demo-list-two mdl-list">
+        <li class="mdl-list__item mdl-list__item--two-line">
+            <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-avatar">person</i>
+                <div class="list__inner">
+                    <span>DAAAAAAA-WHEEEEAT</span>
+                    <span class="mdl-list__item-sub-title">Dawit</span>
+                </div>
+                <span class="mdl-list__item-secondary-content"># 7</span>
+              </span>
+        </li>
+    </ul>
+
+    <ul id="stats_row" class="demo-list-item mdl-list row_with_subheader">
+        <li class="subheader mdl-list__item">
+            <span class="mdl-list__item-primary-content">Stats</span>
+        </li>
+        <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">Record</span>
+            <span class="mdl-list__item-secondary-content">1 Win, 3 Loss  ·  25%</span>
+        </li>
+        <li class="mdl-list__item">
+            <span class="mdl-list__item-primary-content">Total Goals</span>
+            <span class="mdl-list__item-secondary-content">19 For  ·  21 Against</span>
+        </li>
+    </ul>
+
+    <ul class="demo-list-item mdl-list row_with_subheader games_list">
+        <li class="subheader mdl-list__item">
+            <span class="mdl-list__item-primary-content">Games</span>
+        </li>
+        <li class="mdl-list__item mdl-list__item--two-line">
+            <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-avatar">person</i>
+                <span>Eh-Eh-Ron</span>
+                <span class="mdl-list__item-sub-title">Aaron</span>
+            </span>
+            <span class="score score_lose mdl-list__item-secondary-content">5 - 6</span>
+        </li>
+        <li class="mdl-list__item mdl-list__item--two-line">
+            <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-avatar">person</i>
+                <span>JDub</span>
+                <span class="mdl-list__item-sub-title">Joel</span>
+            </span>
+            <span class="score score_win mdl-list__item-secondary-content">3 - 6</span>
+        </li>
+        <li class="mdl-list__item mdl-list__item--two-line">
+            <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-avatar">person</i>
+                <span>Velcro</span>
+                <span class="mdl-list__item-sub-title">Justin</span>
+            </span>
+            <span class="score score_lose mdl-list__item-secondary-content">5 - 6</span>
+        </li>
+        <li class="mdl-list__item mdl-list__item--two-line">
+            <span class="mdl-list__item-primary-content">
+                <i class="material-icons mdl-list__item-avatar">person</i>
+                <span>Klaskhole</span>
+                <span class="mdl-list__item-sub-title">Nick</span>
+            </span>
+            <span class="score score_lose mdl-list__item-secondary-content">3 - 6</span>
+        </li>
+    </ul>        
+
+  </main>
+
+  <div class="loader">
+    <svg viewBox="0 0 32 32" width="32" height="32">
+        <circle id="spinner" cx="16" cy="16" r="14" fill="none"></circle>
+    </svg>
+  </div>
+
+  <script>
+    // TODO:
+
+    // if: this profile matches the profile of the currently signed in user
+    //     swap the "add" icon for an "edit" icon
+    //     disallow "games" rows to be tappable and allow them all to be swipable (to delete previous games)
+    // else:
+    //     swap the "edit" icon with the "add" icon
+    //     allow games rows to be tappable. tapping them opens the challenge screen w/ pre-filled user info
+    //     allow only games on that user's profile that are "against" the currently signed in user (if exists) to be swipable
+
+    function goBack() {
+        window.history.back();
+    }
+  </script>
+  <script src="scripts/app.js" async></script>
+
+</body>
+</html>
