@@ -16,11 +16,11 @@ export default Component.extend({
   userid: computed('session', function(){
     return this.get('session.currentUser.uid');
   }),
-  rank: computed('user.uid', 'store', function(){
+  rank: computed('user.uid', function(){
     // calculate win/loss for each user somehow
     return 1;
   }),
-  games: computed('allgames@each.player1id', 'allgames@each.player2id', 'userid', function(){
+  games: computed('allgames.@each.{player1score,player2score,player1id,player2id,arenaid}', 'userid', function(){
     let games = this.get('allgames');
     return games.filter((item, index, self) => item.get('player2id') === this.get('userid') || item.get('player1id') === this.get('userid'));
   }),
