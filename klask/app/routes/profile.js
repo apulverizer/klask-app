@@ -1,11 +1,12 @@
 import Route from '@ember/routing/route';
-import { inject } from '@ember/service';
+import RSVP from 'rsvp';
 
 export default Route.extend({
-  model: function() {
-    return this.store.query('user', {
-      orderBy: "uid",
-      equalTo: this.get('session.currentUser.uid')
-    })[0];
+  model() {
+    return RSVP.hash({
+      users: this.get('store').findAll('user'),
+      games: this.get('store').findAll('game'),
+      arenas: this.get('store').findAll('arena')
+    });
   }
 });

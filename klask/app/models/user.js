@@ -5,5 +5,6 @@ export default DS.Model.extend({
   email: DS.attr(),
   name: DS.attr(),
   nickname: DS.attr(),
-  photourl: DS.attr()
+  photourl: DS.attr(),
+  uid: DS.attr()
 });

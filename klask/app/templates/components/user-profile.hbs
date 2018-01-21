@@ -1,3 +1,4 @@
+{{test}}
 <ul id="profile_row" class="demo-list-two mdl-list">
     {{profile-info name=user.name nickname=user.nickname rank=rank}}
 </ul>
@@ -11,6 +12,6 @@
       <span class="mdl-list__item-primary-content">Games</span>
   </li>
   {{#each games as |game|}}
-    {{profile-game game=game}}
+    {{profile-game game=game allusers=allusers}}
   {{/each}}
 </ul>
