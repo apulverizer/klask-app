@@ -1,0 +1,10 @@
+<section>
+{{#each model as |game|}}
+  <div>Player 1 ID: {{game.player1id}}</div>
+  <div>Player 2 ID: {{game.player2id}}</div>
+  <div>Player 1 Score: {{game.player1score}}</div>
+  <div>Player 2 Score: {{game.player2score}}</div>
+  <div>Arena ID: {{game.arenaid}}</div>
+  <div>Date: {{game.datetime}}</div>
+{{/each}}
+</section>
