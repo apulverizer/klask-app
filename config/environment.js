@@ -5,7 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'klask-app',
     environment,
     rootURL: '/',
-    locationType: 'auto',
+    locationType: 'hash',
     firebase: {
       apiKey: "AIzaSyClWZkWtgMbch0Ko7qSHvbz04g6n8K8YCA",
       authDomain: "portland-leaderboard.firebaseapp.com",
