@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="182px" height="171px" viewBox="0 0 182 171" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 48.2 (47327) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M90,208.262626 C139.705627,208.262626 180,201.994613 180,194.262626 C180,190.355164 180,125.600955 180,0 L0,0 C0,124.35376 0,189.107969 0,194.262626 C0,201.994613 40.2943725,208.262626 90,208.262626 Z" id="path-1"></path>
+    </defs>
+    <g id="Server-Inaccessible" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" transform="translate(-97.000000, -321.000000)">
+        <g id="Icon" transform="translate(97.000000, 283.000000)">
+            <ellipse id="Goal" fill="#AC48EA" cx="90" cy="194.262626" rx="90" ry="14"></ellipse>
+            <g id="Pieces-in-Goal">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <g id="Goal"></g>
+                <path d="M129.325052,67.8375979 L133.484126,147.811358 C133.60881,150.208883 134.591867,152.481536 136.253712,154.214149 L150.507241,169.074655 C152.293159,170.936624 153.290323,173.416794 153.290323,175.9968 L153.290323,210.438505 L92,210.438505 L92,175.9968 C92,173.416794 92.9971639,170.936624 94.7830811,169.074655 L109.036611,154.214149 C110.698456,152.481536 111.681512,150.208883 111.806197,147.811358 L115.96527,67.8375979 C110.500947,65.3585685 106.709677,59.9321274 106.709677,53.6367859 C106.709677,45.0008275 113.844237,38 122.645161,38 C131.446086,38 138.580645,45.0008275 138.580645,53.6367859 C138.580645,59.9321274 134.789376,65.3585685 129.325052,67.8375979 Z" id="Paddle" fill="#000000" mask="url(#mask-2)"></path>
+                <ellipse id="Ball" fill="#F6C800" mask="url(#mask-2)" cx="52.9032258" cy="198.390159" rx="27.4193548" ry="27.3643754"></ellipse>
+            </g>
+            <rect id="Barnacle" fill="#FFFFFF" transform="translate(157.656566, 154.040404) rotate(48.000000) translate(-157.656566, -154.040404) " x="139.474747" y="137.878788" width="36.3636364" height="32.3232323" rx="1.5"></rect>
+        </g>
+    </g>
+</svg>
