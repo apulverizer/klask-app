@@ -1,8 +1,4 @@
 {{klask-header title="Standings"}}
 <main class="main">
-  {{#standings-list}}
-    {{#each model as |user|}}
-      {{user-standing user=user}}
-    {{/each}}
-  {{/standings-list}}
+  {{standings-list allusers=model.users allgames=model.games }}
 </main>

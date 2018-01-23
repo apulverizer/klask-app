@@ -56,7 +56,7 @@ export default Component.extend({
   winPercentage: computed('wins', 'losses', function(){
     let wins = this.get('wins');
     let losses = this.get('losses');
-    return (wins/(wins+losses))*100;
+    return ((wins/(wins+losses))*100).toFixed(0) || 0;
   }),
   goalsFor: computed('games', function(){
     let player2scores = this.get('games').filter((item, index, self) => (item.get('player2id') === this.get('userid'))).map(item => item.get('player2score')).reduce(function(a, b) { return a + b; }, 0);
