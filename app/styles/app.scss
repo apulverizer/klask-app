@@ -336,3 +336,43 @@ body {
   background-color: #9FDE5A;
   opacity: 1;
 }
+
+// sign in **************************************************************
+
+.container_sign-in {
+  align-items: center;
+  background-image: linear-gradient(-180deg, #BC48FF 0%, #6117AA 100%);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+  width: 100%;
+
+  h1 {
+    color: #FFF;
+    font: 42px 'komika slick', sans-serif;
+    margin: 0 0 40px;
+    text-align: center;
+    width: 75%;
+  }
+
+  .btn-sign-in {
+    background: #FFF;
+    border: none;
+    border-radius: 2px;
+    box-shadow: 0 0 1px 0 rgba(0,0,0,0.12), 0 1px 1px 0 rgba(0,0,0,0.24);
+    color: rgba(0,0,0,0.54);
+    font: 14px 'Roboto', sans-serif;
+    height: 40px;
+    letter-spacing: 0.12px;
+    margin-top: 64px;
+    padding: 0 8px;
+    // Added for the material ripple. Not functional right now
+    // position: relative;
+    // overflow: hidden;
+
+    img {
+      padding-right: 24px;
+    }
+  }
+}
