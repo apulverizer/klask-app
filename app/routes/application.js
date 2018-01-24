@@ -8,12 +8,15 @@ export default Route.extend({
   },
   actions: {
     signIn: function(provider) {
+      var parent_this = this;
       this.get('session').open('firebase', { provider: provider}).then(function(data) {
         // do something with data.currentUser
+        parent_this.transitionTo('standings');
       });
     },
     signOut: function() {
       this.get('session').close();
+      this.transitionTo('/');
     }
   }
 });
