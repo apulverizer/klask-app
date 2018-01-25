@@ -3,6 +3,7 @@ import { inject } from '@ember/service';
 
 export default Route.extend({
   session: inject(),
+  cookies: inject(),
   beforeModel: function() {
     return this.get('session').fetch().catch(function() {});
   },
@@ -16,6 +17,7 @@ export default Route.extend({
     },
     signOut: function() {
       this.get('session').close();
+      this.get('cookies').clear('arena');
       this.transitionTo('/');
     }
   }

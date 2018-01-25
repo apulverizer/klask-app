@@ -1,7 +1,8 @@
-<section>
-{{#each model as |arena|}}
-  <div>ID: {{arena.aid}}</div>
-  <div>Name: {{arena.arenaname}}</div>
-  <div>Users: {{arena.joinedusers}}</div>
-{{/each}}
-</section>
+<div>Join a new area:</div>
+{{arena-input}}
+<div>Previously joined arenas</div>
+{{#arena-list}}
+  {{#each model as |arena|}}
+    {{arena-list-item arena=arena}}
+  {{/each}}
+{{/arena-list}}
