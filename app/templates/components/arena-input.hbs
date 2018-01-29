@@ -1,2 +1,2 @@
-{{input placeholder='Enter arena' enter=(action "selectNewArena") class=""}}
-{{yield}}
+{{input placeholder='Enter arena' enter=(action joinNewArena) class=""}}
+{{yield yield (action joinNewArena)}}

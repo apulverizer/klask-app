@@ -1,8 +1,8 @@
 <div>Join a new area:</div>
-{{arena-input}}
+{{arena-input joinNewArena=(action 'joinNewArena')}}
 <div>Previously joined arenas</div>
-{{#arena-list}}
+{{#arena-list selectExistingArena=(action 'selectExistingArena') as |selectExistingArena|}}
   {{#each model as |arena|}}
-    {{arena-list-item arena=arena}}
+    {{arena-list-item arena=arena selectExistingArena=selectExistingArena}}
   {{/each}}
 {{/arena-list}}
