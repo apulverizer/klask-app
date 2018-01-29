@@ -5,8 +5,13 @@ import { inject } from '@ember/service';
 export default Route.extend({
   session: inject(),
   beforeModel() {
+    // make sure signed in
     if (!this.get('session.currentUser')){
       this.transitionTo('/');
+    }
+    // make sure there is an arena
+    else if (!localStorage.getItem('arenaId')){
+      this.transitionTo('arenas');
     }
   },
   model() {
