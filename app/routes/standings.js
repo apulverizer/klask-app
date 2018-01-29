@@ -17,7 +17,10 @@ export default Route.extend({
   model() {
     return RSVP.hash({
       users: this.get('store').findAll('user'),
-      games: this.get('store').findAll('game'),
+      games: this.get('store').query('game', {
+        orderBy: 'arenaid',
+        equalTo: localStorage.getItem('arenaId')
+      }),
       arenas: this.get('store').findAll('arena')
     });
   }
