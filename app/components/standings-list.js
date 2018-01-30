@@ -22,16 +22,39 @@ export default Component.extend({
       // filter by current arena
       if (areansjoined.indexOf(currentArenaId) != -1){
         let userid = user.get('uid');
+        let name = user.get('name');
         let wins = games.filter((item, index, self) => (item.get('player2id') === userid && item.get('player2score') === 6) || (item.get('player1id') == userid && item.get('player1score') === 6)).get('length');
         let losses = games.filter((item, index, self) => (item.get('player2id') === userid && item.get('player2score') != 6) || (item.get('player1id') == userid && item.get('player1score') != 6)).get('length');
-        let ratio = wins/(wins+losses);
+        let ratio = wins/(wins+losses) || 0;
         userRanks.push({
           user: user,
-          ratio: ratio
+          ratio: ratio,
+          wins: wins,
+          name: name
         });
       }
     });
-    let usersRanked = userRanks.sort(function(a,b) {return (a.ratio < b.ratio) ? 1 : ((b.ratio > a.ratio) ? -1 : 0);} ).map(a => a.user);
+    let usersRanked = userRanks.sort(function(a,b){
+        if (a.ratio > b.ratio) {
+          return -1;
+        }
+        if (a.ratio < b.ratio) {
+          return 1;
+        }
+        if (a.wins > b.wins){
+          return -1;
+        }
+        if (b.wins > a.wins){
+          return 1;
+        }
+        if (a.name > b.name){
+          return 1;
+        }
+        if (b.name > a.name){
+          return -1;
+        }
+        return 0;
+    }).map(a => a.user);
     return usersRanked;
   }),
 
