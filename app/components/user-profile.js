@@ -8,6 +8,7 @@ export default Component.extend({
   allusers: null,
   allgames: null,
   store: inject(),
+  arenaid: localStorage.getItem('arenaId'),
   user: computed('allusers', function(){
     let userid = this.get('userid');
     let user = this.get('allusers').filterBy('uid', userid)[0];
@@ -43,15 +44,19 @@ export default Component.extend({
   }),
   games: computed('allgames.@each.{player1score,player2score,player1id,player2id,arenaid}', 'userid', function(){
     let games = this.get('allgames');
-    return games.filter((item, index, self) => item.get('player2id') === this.get('userid') || item.get('player1id') === this.get('userid'));
+    return games.filter((item, index, self) => item.get('arenaid') === this.get('arenaid') && (item.get('player2id') === this.get('userid') || item.get('player1id') === this.get('userid')));
   }),
   wins: computed('games', function(){
     let games = this.get('games');
-    return this.get('games').filter((item, index, self) => (item.get('player2id') === this.get('userid') && item.get('player2score') === 6) || (item.get('player1id') == item.get('userid') && item.get('player1score') === 6)).get('length');
+    let player2wins = this.get('games').filter((item, index, self) => ((item.get('player2id') === this.get('userid')) && item.get('player2score') === 6));
+    let player1wins = this.get('games').filter((item, index, self) => ((item.get('player1id') === this.get('userid')) && item.get('player1score') === 6));
+    return player1wins.get('length') + player2wins.get('length');
   }),
   losses: computed('games', function(){
     let games = this.get('games');
-    return this.get('games').filter((item, index, self) => (item.get('player2id') === this.get('userid') && item.get('player2score') != 6) || (item.get('player1id') == item.get('userid') && item.get('player1score') != 6)).get('length');
+    let player2losses = this.get('games').filter((item, index, self) => ((item.get('player2id') === this.get('userid')) && item.get('player2score') != 6));
+    let player1losses = this.get('games').filter((item, index, self) => ((item.get('player1id') === this.get('userid')) && item.get('player1score') != 6));
+    return player2losses.get('length') + player1losses.get('length');
   }),
   winPercentage: computed('wins', 'losses', function(){
     let wins = this.get('wins');

@@ -4,5 +4,5 @@
         <span>{{opponent.nickname}}</span>
         <span class="mdl-list__item-sub-title">{{opponent.name}}</span>
     </span>
-    <span class="score score_lose mdl-list__item-secondary-content">{{game.player1score}} - {{game.player2score}}</span>
+    <span class="score {{if isWin 'score_win' 'score_lose'}} mdl-list__item-secondary-content">{{game.player1score}} - {{game.player2score}}</span>
 </li>
