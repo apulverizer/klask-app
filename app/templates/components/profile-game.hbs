@@ -1,8 +1,8 @@
 <li class="mdl-list__item mdl-list__item--two-line">
     <span class="mdl-list__item-primary-content">
-        <i class="material-icons mdl-list__item-avatar"></i>
+        <img class="material-icons mdl-list__item-avatar" src="{{opponent.photourl}}"/>
         <span>{{opponent.nickname}}</span>
         <span class="mdl-list__item-sub-title">{{opponent.name}}</span>
     </span>
-    <span class="score score_lose mdl-list__item-secondary-content">{{game.player1score}} - {{game.player2score}}</span>
+    <span class="score {{if isWin 'score_win' 'score_lose'}} mdl-list__item-secondary-content">{{game.player1score}} - {{game.player2score}}</span>
 </li>

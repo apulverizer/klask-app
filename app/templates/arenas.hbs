@@ -1,7 +1,14 @@
-<section>
-{{#each model as |arena|}}
-  <div>ID: {{arena.aid}}</div>
-  <div>Name: {{arena.arenaname}}</div>
-  <div>Users: {{arena.joinedusers}}</div>
-{{/each}}
-</section>
+<div class="container_arenas">
+  <div class="inner">
+    <div>Find people playing in the same klask arena</div>
+
+    {{arena-input joinNewArena=(action 'joinNewArena')}}
+
+    <div>Previously joined arenas</div>
+    {{#arena-list selectExistingArena=(action 'selectExistingArena') as |selectExistingArena|}}
+      {{#each model as |arena|}}
+        {{arena-list-item arena=arena selectExistingArena=selectExistingArena}}
+      {{/each}}
+    {{/arena-list}}
+  </div>
+</div>

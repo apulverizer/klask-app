@@ -3,6 +3,7 @@ import { inject } from '@ember/service';
 
 export default Route.extend({
   session: inject(),
+  cookies: inject(),
   beforeModel: function() {
     return this.get('session').fetch().catch(function() {});
   },
@@ -11,11 +12,12 @@ export default Route.extend({
       var parent_this = this;
       this.get('session').open('firebase', { provider: provider}).then(function(data) {
         // do something with data.currentUser
-        parent_this.transitionTo('standings');
+        parent_this.transitionTo('arenas');
       });
     },
     signOut: function() {
       this.get('session').close();
+      localStorage.removeItem('arenaId');
       this.transitionTo('/');
     }
   }
