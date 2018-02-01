@@ -1,8 +1,14 @@
-<div>Join a new area:</div>
-{{arena-input}}
-<div>Previously joined arenas</div>
-{{#arena-list}}
-  {{#each model as |arena|}}
-    {{arena-list-item arena=arena}}
-  {{/each}}
-{{/arena-list}}
+<div class="container_arenas">
+  <div class="inner">
+    <div>Find people playing in the same klask arena</div>
+
+    {{arena-input}}
+
+    <div>Previously joined arenas</div>
+    {{#arena-list}}
+      {{#each model as |arena|}}
+        {{arena-list-item arena=arena}}
+      {{/each}}
+    {{/arena-list}}
+  </div>
+</div>
