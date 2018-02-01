@@ -10,10 +10,6 @@ export default Route.extend({
     if (!this.get('session.currentUser')){
       this.transitionTo('/');
     }
-    // if we know the arena already
-    if (this.get('cookies').read('arena')){
-      this.transitionTo('standings');
-    }
   },
   model: function() {
     var parentThis=this;
@@ -21,7 +17,7 @@ export default Route.extend({
       orderBy: 'uid',
       equalTo: this.get('session.currentUser.uid')
     }).then(function(users) {
-      var arenaIds = users.objectAt(0).get('arenasjoined');
+      var arenaIds = users.objectAt(0).get('arenasjoined') || [];
       var joinedArenas = A();
       arenaIds.forEach(function(aid){
         parentThis.get('store').query('arena', {

@@ -12,12 +12,12 @@ export default Route.extend({
       var parent_this = this;
       this.get('session').open('firebase', { provider: provider}).then(function(data) {
         // do something with data.currentUser
-        parent_this.transitionTo('standings');
+        parent_this.transitionTo('arenas');
       });
     },
     signOut: function() {
       this.get('session').close();
-      this.get('cookies').clear('arena');
+      localStorage.removeItem('arenaId');
       this.transitionTo('/');
     }
   }
