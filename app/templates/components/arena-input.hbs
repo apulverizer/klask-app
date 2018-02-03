@@ -1,7 +1,11 @@
 <form action="#">
-  <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-    {{input enter=(action joinNewArena) class="mdl-textfield__input" type="text" id="sample3"}}
-    <label class="mdl-textfield__label" for="sample3">Enter your Arena URL</label>
-  </div>
-</form>    
+    {{!-- {{input enter=(action joinNewArena) class="mdl-textfield__input" type="text" id="sample3"}} --}}
+  
+  {{paper-input class="paper-input-container" label="Enter your Arena URL" value=name onChange=(action (mut name))}}
+
+  {{input enter=(action joinNewArena) value="Join arena" type="submit" id="input-join-arena"}}
+</form>
+
+
+
 {{yield (action joinNewArena)}}

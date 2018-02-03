@@ -1,0 +1,38 @@
+{{!-- <button id="demo-menu-lower-right" class="headerButton butProfile mdl-button mdl-js-button" aria-label="Profile">
+    <span class="mdl-ripple"></span>
+</button> --}}
+<div class="menus layout-fill layout-wrap layout-row layout-align-space-between-center">
+
+  <div class="layout-column flex-33 flex-sm-100 layout-align-center-center">
+
+    {{#paper-menu isOpen=menuFourIsOpen position="target-right target" as |menu|}}
+      {{#menu.trigger}}
+        {{#paper-button onClick=null iconButton=true}}
+          {{paper-icon "local_phone" class="md-menu-origin"}}
+        {{/paper-button}}
+      {{/menu.trigger}}
+
+      {{#menu.content as |content|}}
+        {{#each items as |item|}}
+
+            {{#content.menu-item onClick=(action "openSomething")}}
+                <span class="md-menu-align-target">Option</span> {{item}}
+            {{/content.menu-item}}
+
+          {{#content.menu-item onClick="openSomething"}}
+            <p style="width: 190px;">{{item.title}}</p>
+            {{paper-icon item.icon class="md-menu-align-target"}}
+          {{/content.menu-item}}
+
+          {{#content.menu-item onClick="openSomething"}}
+            <p style="width: 190px;">{{item.title}}</p>
+            {{paper-icon item.icon class="md-menu-align-target"}}
+          {{/content.menu-item}}
+
+        {{/each}}
+      {{/menu.content}}
+    {{/paper-menu}}
+  </div>
+</div>
+
+{{yield}}  
