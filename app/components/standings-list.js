@@ -3,8 +3,8 @@ import { inject } from '@ember/service';
 import { computed } from '@ember/object';
 
 export default Component.extend({
-  tagName: 'ul',
-  classNames: ['demo-list-two mdl-list'],
+  // tagName: 'ul',
+  // classNames: ['demo-list-two mdl-list'],
   store: inject(),
   allusers: null,
   allgames: null,

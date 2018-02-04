@@ -78,6 +78,34 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
   }
 }
 
+.standings-subheader {
+  background: #303030;
+  padding: 0;
+  position: fixed;
+  top: 64px;
+  width: 100%;
+  z-index: 2;
+
+  .md-button {
+    min-width: 50px;
+  }
+
+  .sort-timespan {
+    margin-left: -6px;
+  }
+
+  .md-secondary-container button:last-of-type.sort-rank {
+    margin-right: -6px;
+    text-align: right;
+  }
+}
+
+@media (max-width: 959px) and (min-width: 0) and (orientation: landscape) {
+  .md-toolbar-tools {
+    min-height: 64px;
+  }
+}
+
 // toolbar profile image
 .image-profile {
   .md-button.md-icon-button {
@@ -87,7 +115,7 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
     padding-right: 0;
     width: 32px;
   }
-  
+
   img {
     border-radius: 50%;
     width: 100%;
@@ -100,15 +128,12 @@ md-menu-content {
   }
 
   md-menu-item:first-child {
-    // height: 72px;
 
     img {
       border-radius: 50%;
       width: 72px;
     }
   }
-
-
 }
 
 .main {
@@ -116,10 +141,18 @@ md-menu-content {
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
-  margin-top: 64px;
+
+  // height of toolbar + height of standings subheader
+  margin-top: 112px;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; }
+
+  @media (max-width: 959px) and (min-width: 0) and (orientation: portrait) {
+    .main {
+      margin-top: 56px;
+    }
+  }
 
  /*****************************************************************/
  
@@ -132,14 +165,15 @@ md-menu-content {
   }
 
   md-list-item {
-    padding: 16px 0;
+    // padding: 16px 0;
     width: 100%;
   }
 
   .left {
-    border: 1px solid #9FDE5A;
+    // border: 1px solid #9FDE5A;
+    margin-left: -8px;
     margin-right: 16px;
-    min-width: 25px;
+    min-width: 24px;
     text-align: center;
 
     span {
@@ -156,12 +190,12 @@ md-menu-content {
     display: flex;
 
     .middle {
-      border: 1px solid red;
+      // border: 1px solid red;
       flex: 2;
     }
 
     .right {
-      border: 1px solid cyan;
+      // border: 1px solid cyan;
       margin-left: 16px;
     }
 
@@ -177,6 +211,9 @@ md-menu-content {
   }
 }
  
+md-divider.md-default-theme, md-divider {
+  border-top-color: rgba(255, 255, 255, 0.2);
+}
 
 /*****************************************************************/
 

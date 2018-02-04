@@ -3,9 +3,9 @@ import { inject } from '@ember/service';
 import { computed } from '@ember/object';
 
 export default Component.extend({
-  tagName: 'li',
+  // tagName: 'li',
   user: null,
-  classNames: ['mdl-list__item mdl-list__item--two-line mdl-js-ripple-effect'],
+  // classNames: ['mdl-list__item mdl-list__item--two-line mdl-js-ripple-effect'],
   store: inject(),
   allgames: null,
   allusers: null,
