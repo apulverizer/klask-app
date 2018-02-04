@@ -2,7 +2,7 @@
 
   {{#menu.trigger}}
     {{#paper-button iconButton=true}}
-      <img class="material-icons mdl-list__item-avatar" src="{{user.photourl}}"/>
+      <img src="{{user.photourl}}"/>
       {{!-- {{paper-icon "account_circle" class="md-menu-origin"}} --}}
     {{/paper-button}}
   {{/menu.trigger}}
@@ -10,8 +10,7 @@
   {{#menu.content width=4 as |content|}}
 
     {{#content.menu-item}}
-      <img class="material-icons mdl-list__item-avatar" src="{{user.photourl}}"/>
-      {{!-- {{paper-icon "account_circle" class="md-menu-align-target"}} --}}
+      <img src="{{user.photourl}}"/>
       <span>{{user.name}}</span>
     {{/content.menu-item}}
 

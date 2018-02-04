@@ -78,6 +78,12 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
   }
 }
 
+// toolbar profile image
+.md-button img {
+  border-radius: 50%;
+  width: 100%;
+}
+
 md-menu-content {
   .menu-divider {
     margin: 8px 0;
@@ -85,7 +91,14 @@ md-menu-content {
 
   md-menu-item:first-child {
     // height: 72px;
+
+    img {
+      border-radius: 50%;
+      width: 72px;
+    }
   }
+
+
 }
 
 .main {
