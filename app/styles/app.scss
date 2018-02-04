@@ -79,9 +79,19 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
 }
 
 // toolbar profile image
-.md-button img {
-  border-radius: 50%;
-  width: 100%;
+.image-profile {
+  .md-button.md-icon-button {
+    height: auto;
+    line-height: 40px;
+    margin-right: 0;
+    padding-right: 0;
+    width: 32px;
+  }
+  
+  img {
+    border-radius: 50%;
+    width: 100%;
+  }
 }
 
 md-menu-content {
@@ -110,6 +120,63 @@ md-menu-content {
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; }
+
+ /*****************************************************************/
+ 
+ // Standings
+.standings md-list {
+  
+  li {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  md-list-item {
+    padding: 16px 0;
+    width: 100%;
+  }
+
+  .left {
+    border: 1px solid #9FDE5A;
+    margin-right: 16px;
+    min-width: 25px;
+    text-align: center;
+
+    span {
+      color: #9FDE5A;
+      font-size: 14px;
+    }
+  }
+
+  h3, h4, span {
+    font-family: 'komika slick', sans-serif;
+  }
+
+  md-list-item .md-list-item-text.standings {
+    display: flex;
+
+    .middle {
+      border: 1px solid red;
+      flex: 2;
+    }
+
+    .right {
+      border: 1px solid cyan;
+      margin-left: 16px;
+    }
+
+    h3 {
+      color: rgba(255, 255, 255, 1);
+    }
+
+    h4, .right > span {
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 14px;
+    }
+
+  }
+}
+ 
 
 /*****************************************************************/
 
