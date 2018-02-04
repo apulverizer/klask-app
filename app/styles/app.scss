@@ -65,95 +65,35 @@ body {
       -ms-flex-line-pack: stretch;
           align-content: stretch;
   background: #000; 
+  overflow-y: auto;
 }
 
-.header {
-  width: 100%;
-  height: 56px;
-  color: #FFF;
+md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolbar) {
   background: #7D34C4;
   position: fixed;
-  font-size: 20px;
-  /* box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 2px 9px 1px rgba(0, 0, 0, 0.12), 0 4px 2px -2px rgba(0, 0, 0, 0.2); */
-  padding: 16px 16px 0 16px;
-  will-change: transform;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-flex-wrap: nowrap;
-      -ms-flex-wrap: nowrap;
-          flex-wrap: nowrap;
-  -webkit-box-pack: start;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  -webkit-box-align: stretch;
-  -webkit-align-items: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
-  -webkit-align-content: center;
-      -ms-flex-line-pack: center;
-          align-content: center;
-  -webkit-transition: -webkit-transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
-  transition: -webkit-transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
-  transition: transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
-  transition: transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s, -webkit-transform 0.233s cubic-bezier(0, 0, 0.21, 1) 0.1s;
-  z-index: 1000; }
-  
-  .header__title {
-    font-family: 'komika slick', sans-serif;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 56px;
-    margin: 0;
-    margin-top: -16px;
-    -webkit-box-flex: 1;
-    -webkit-flex: 1;
-        -ms-flex: 1;
-            flex: 1; }
 
-  .header .headerButton {
-    width: 24px;
-    height: 24px;
-    margin-right: 24px;
-    text-indent: -30000px;
-    overflow: hidden;
-    opacity: 1;
-    -webkit-transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
-    transition: opacity 0.333s cubic-bezier(0, 0, 0.21, 1);
-    border: none;
-    outline: none;
-    /* cursor: pointer;  */
-    position: relative;
-    min-width: 0;
+  h2 {
+    font-family: 'komika slick', sans-serif;
+    font-size: 20px;
+  }
+}
+
+md-menu-content {
+  .menu-divider {
+    margin: 8px 0;
   }
 
-  .header #butAdd {
-    background: url(/assets/images/ic_add_white_24px.svg) center center no-repeat; }
-  .header .butProfile {
-    background: url(/assets/images/ic_account_circle_white_24px.svg) center center no-repeat;
-    margin-right: 0;
-    padding: 0;
-   }
-  .header #butBack {
-    background: url(/assets/images/ic_arrow_back_white_24px.svg) center center no-repeat; }
-  .header #butEdit {
-    background: url(/assets/images/ic_mode_edit_white_24px.svg) center center no-repeat; }
-
-
+  md-menu-item:first-child {
+    // height: 72px;
+  }
+}
 
 .main {
-  padding-top: 56px;
   -webkit-box-flex: 1;
   -webkit-flex: 1;
       -ms-flex: 1;
           flex: 1;
+  margin-top: 64px;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; }
@@ -163,16 +103,6 @@ body {
 .mdl-list {
   margin: 0;
 }
-
-// .mdl-ripple {
-//   background: #757575;
-// }
-
-// /* Added for mdl ripple */
-// .mdl-list__item {
-//   overflow: hidden;
-//   position: relative;
-// }
 
 .mdl-list__item--two-line {
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.26)
@@ -389,14 +319,4 @@ body {
     height: 40px;
     width: 100%;
   }
-}
-
-// ember specific **************************************************************
-
-#ember374 {
-  overflow-y: auto;
-}
-
-#ember-basic-dropdown-wormhole {
-  z-index: 1001; // just above header
 }
