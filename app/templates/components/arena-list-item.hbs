@@ -1,4 +1,8 @@
-<li>
-  <button {{action selectExistingArena arena.aid}}>{{arena.arenaname}}</button>
-  <div>{{arena.arenaname}}</div>
-</li>
+{{#paper-item class="md-1-line-icon" onClick=(action selectExistingArena arena.aid)}}
+  
+  {{paper-icon "link"}}
+    <div class="md-list-item-text">
+      {{arena.arenaname}}
+    </div>
+
+{{/paper-item}}

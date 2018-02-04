@@ -1,0 +1,44 @@
+{{#paper-menu position="target-right target" as |menu|}}
+
+  {{#menu.trigger}}
+    {{#paper-button iconButton=true}}
+      <img src="{{user.photourl}}"/>
+      {{!-- {{paper-icon "account_circle" class="md-menu-origin"}} --}}
+    {{/paper-button}}
+  {{/menu.trigger}}
+
+  {{#menu.content width=4 as |content|}}
+
+    {{#content.menu-item}}
+      <img src="{{user.photourl}}"/>
+      <span>{{user.name}}</span>
+    {{/content.menu-item}}
+
+    <div class="menu-divider">
+      {{paper-divider}}
+    </div>
+
+    {{#content.menu-item onClick="openSomething"}}
+      {{paper-icon "person" class="md-menu-align-target"}}
+      <span>View profile</span>
+    {{/content.menu-item}}
+
+    {{#content.menu-item onClick="openSomething"}}
+      {{paper-icon "swap_vert" class="md-menu-align-target"}}
+      <span>Change arena</span>
+    {{/content.menu-item}}
+
+    {{!--
+      signOut this way doesn't work. It also doesn't work if you do onclick=(action "signOut").
+      Need to figure this out later..
+    --}}
+    {{#content.menu-item onClick="signOut"}}
+      {{paper-icon "exit_to_app" class="md-menu-align-target"}}
+      <span>Sign out</span>
+    {{/content.menu-item}}
+
+
+  {{/menu.content}}
+{{/paper-menu}}
+
+{{yield}}
