@@ -6,11 +6,11 @@ export default Component.extend({
   session: inject(),
   title: null,
   username: null,
-  users: null,
+  user: null,
   userid: computed('session', function(){
     return this.get('session.currentUser.uid');
   }),
-  user: computed('allusers', function(){
+  user: computed('users', function(){
     let userid = this.get('userid');
     let user = this.get('users').filterBy('uid', userid)[0];
     return user;
