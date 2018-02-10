@@ -149,8 +149,11 @@ md-menu-content {
   -webkit-overflow-scrolling: touch; }
 
   @media (max-width: 959px) and (min-width: 0) and (orientation: portrait) {
+    .standings-subheader {
+      top: 56px;
+    }
     .main {
-      margin-top: 56px;
+      margin-top: 104px;
     }
   }
 
@@ -158,6 +161,10 @@ md-menu-content {
  
  // Standings
 .standings md-list {
+
+  md-divider.md-default-theme, md-divider {
+    border-top-color: rgba(255, 255, 255, 0.2);
+  }
   
   li {
     padding-left: 0;
@@ -211,9 +218,7 @@ md-menu-content {
   }
 }
  
-md-divider.md-default-theme, md-divider {
-  border-top-color: rgba(255, 255, 255, 0.2);
-}
+
 
 /*****************************************************************/
 

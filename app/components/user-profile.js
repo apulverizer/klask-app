@@ -73,7 +73,12 @@ export default Component.extend({
   }),
   games: computed('allgames.@each.{player1score,player2score,player1id,player2id,arenaid}', 'userid', function(){
     let games = this.get('allgames');
-    return games.filter((item, index, self) => item.get('arenaid') === this.get('arenaid') && (item.get('player2id') === this.get('userid') || item.get('player1id') === this.get('userid')));
+    let g = games.filter((item, index, self) => item.get('arenaid') === this.get('arenaid') && (item.get('player2id') === this.get('userid') || item.get('player1id') === this.get('userid')));
+    return g.sort(function(a, b){
+      if(a.get('datetime') > b.get('datetime')) return -1;
+      if(a.get('datetime') < b.get('datetime')) return 1;
+      return 0;
+    });
   }),
   wins: computed('games', function(){
     let games = this.get('games');
