@@ -12,6 +12,8 @@ export default Controller.extend({
           orderBy: 'uid',
           equalTo: data.currentUser.uid
         }).then(function(users){
+          // check if user already exists
+          // if not, then create a new user
           if (users.get('length') < 1){
               let newUser = self.get('store').createRecord('user', {
                 arenasjoined: null,
@@ -26,6 +28,9 @@ export default Controller.extend({
               }).catch(function(error){
                 console.log(error);
               })
+          }
+          else {
+            self.transitionToRoute('arenas');
           }
         });
       });
