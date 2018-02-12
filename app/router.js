@@ -7,7 +7,6 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
-  this.route('games');
   this.route('arenas');
   this.route('standings');
   this.route('profile');
