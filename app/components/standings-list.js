@@ -8,7 +8,6 @@ export default Component.extend({
   store: inject(),
   allusers: null,
   allgames: null,
-
   usersRanked: computed('allusers','allgames.@each.{player1score,player2score,player1id,player2id,arenaid}', function(){
     // calculate win/loss for each user somehow
     var games = this.get('allgames');
@@ -56,6 +55,5 @@ export default Component.extend({
         return 0;
     }).map(a => a.user);
     return usersRanked;
-  }),
-
+  })
 });

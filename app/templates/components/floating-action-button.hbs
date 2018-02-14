@@ -1,0 +1,119 @@
+<div class="speed-dial-info-btns">
+  {{#paper-button raised=true}}Challenge{{/paper-button}}
+  {{#paper-button raised=true onClick=(action "showLoseDialog")}}You lose{{/paper-button}}
+  {{#paper-button raised=true onClick=(action "showWinDialog")}}You win{{/paper-button}}
+</div>
+
+{{#paper-speed-dial direction="up" open=open2 onToggle=(action (mut open2)) as |dial|}}
+
+  {{#dial.trigger}}
+    {{#paper-button onClick="toggleSpeedDial" fab=true}}
+      {{#if isSpeedDialOpen}}
+        {{paper-icon "close"}}
+      {{else}}
+        {{paper-icon "add"}}
+      {{/if}}  
+    {{/paper-button}}
+  {{/dial.trigger}}
+      
+  {{#dial.actions as |actions|}}
+    {{#actions.action}}
+      {{#paper-button mini=true onClick=(action (mut showDialog) true)}}
+        {{paper-icon "send"}}
+      {{/paper-button}}
+    {{/actions.action}}
+
+    {{#actions.action}}
+      {{#paper-button mini=true onClick="showLoseDialog"}}
+        {{paper-icon "exposure_neg_1"}}
+      {{/paper-button}}
+    {{/actions.action}}
+
+    {{#actions.action}}
+      {{#paper-button mini=true onClick="showWinDialog"}}
+        {{paper-icon "exposure_plus_1"}}
+      {{/paper-button}}
+    {{/actions.action}}
+
+  {{/dial.actions}}
+{{/paper-speed-dial}}
+
+{{#if loseDialog}}
+  {{#paper-dialog class="flex-77 dialog-lose" onClose=(action "closeLoseDialog" "cancel") origin=dialogOrigin clickOutsideToClose=true}}
+    {{#paper-toolbar class="dialog-toolbar score-submit"}}
+      {{#paper-toolbar-tools}}
+        <h2>What was your final score?</h2>
+        <span class="flex"></span>
+      {{/paper-toolbar-tools}}
+    {{/paper-toolbar}}
+
+    {{#paper-dialog-content}}
+      <div class="layout-row">
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">0</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">1</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">2</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">3</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">4</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">5</span>
+        {{/paper-button}}
+      </div>
+    {{/paper-dialog-content}}
+
+    {{#paper-dialog-actions class="layout-row lose"}}
+      {{#paper-button onClick=(action "closeLoseDialog" "cancel")}}Cancel{{/paper-button}}
+      {{#paper-button onClick=(action "closeLoseDialog" "ok")}}Submit score{{/paper-button}}
+    {{/paper-dialog-actions}}
+  {{/paper-dialog}}
+{{/if}}
+
+{{#if winDialog}}
+  {{#paper-dialog class="flex-77 dialog-win" onClose=(action "closeWinDialog" "cancel") origin=dialogOrigin clickOutsideToClose=true}}
+    {{#paper-toolbar class="dialog-toolbar score-submit"}}
+      {{#paper-toolbar-tools}}
+        <h2>What was Pulverizer's final score?</h2>
+        <span class="flex"></span>
+      {{/paper-toolbar-tools}}
+    {{/paper-toolbar}}
+
+    {{#paper-dialog-content}}
+      <div class="layout-row">
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">0</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">1</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">2</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">3</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">4</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">5</span>
+        {{/paper-button}}
+      </div>
+    {{/paper-dialog-content}}
+
+    {{#paper-dialog-actions class="layout-row win"}}
+      {{#paper-button onClick=(action "closeWinDialog" "cancel")}}Cancel{{/paper-button}}
+      {{#paper-button onClick=(action "closeWinDialog" "ok")}}Submit score{{/paper-button}}
+    {{/paper-dialog-actions}}
+  {{/paper-dialog}}
+{{/if}}
+
+{{yield}}
