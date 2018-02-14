@@ -1,3 +1,7 @@
+<li class="subheader mdl-list__item">
+    <span {{action "changeDateFilter"}} class="mdl-list__item-primary-content">{{dateFilter}}</span>
+    <span {{action "changeRankType"}} class="mdl-list__item-secondary-content">{{rankType}}</span>
+</li>
 {{#each usersRanked as |user|}}
-  {{user-standing user=user allusers=allusers allgames=allgames}}
+  {{user-standing userRanked=user allusers=allusers allgames=allgames displayStat=rankType}}
 {{/each}}

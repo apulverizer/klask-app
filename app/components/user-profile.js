@@ -18,13 +18,14 @@ export default Component.extend({
     return this.get('session.currentUser.uid');
   }),
   rank: computed('allgames.@each.{player1score,player2score,player1id,player2id,arenaid}', function(){
-    // calculate win/loss for each user somehow
     var games = this.get('allgames');
     var users = this.get('allusers');
     var uid = this.get('userid');
     var userRanks = [];
     // get current arena from local storage
     var currentArenaId = localStorage.getItem('arenaId');
+    // filter games by arena
+    games = games.filter((item, index, self) => (item.get('arenaid') === currentArenaId));
     users.forEach(function(user){
       let areansjoined = user.get('arenasjoined') || [];
       // filter by current arena
@@ -32,8 +33,8 @@ export default Component.extend({
       //g = games.filter((item, index, self) => item.get('player2id') === user.get('uid') || item.get('player1id') === user.get('player2id'));
         let userid = user.get('uid');
         let name = user.get('name');
-        let wins = games.filter((item, index, self) => (item.get('player2id') === userid && item.get('player2score') === 6) || (item.get('player1id') == userid && item.get('player1score') === 6)).get('length');
-        let losses = games.filter((item, index, self) => (item.get('player2id') === userid && item.get('player2score') != 6) || (item.get('player1id') == userid && item.get('player1score') != 6)).get('length');
+        let wins = games.filter((item, index, self) => (item.get('player2id') === userid && item.get('player2score') === 6) || (item.get('player1id') === userid && item.get('player1score') === 6)).get('length');
+        let losses = games.filter((item, index, self) => (item.get('player2id') === userid && item.get('player2score') != 6) || (item.get('player1id') === userid && item.get('player1score') != 6)).get('length');
         let ratio = wins/(wins+losses) || 0;
         userRanks.push({
           userid: userid,
