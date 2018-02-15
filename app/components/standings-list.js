@@ -87,17 +87,11 @@ export default Component.extend({
             if (game.get('player1score') > game.get('player2score')){
               userRanked.points += (0.5 + (1.5*userRanks.filter((item, index, self) => (item.user.get('uid') === game.get('player2id')))[0].ratio));
             }
-            else {
-              userRanked.points += 0.5;
-            }
           }
           else if (userRanked.user.get('uid') === game.get('player2id'))
           {
             if (game.get('player2score') > game.get('player1score')){
               userRanked.points += (0.5 + (1.5*userRanks.filter((item, index, self) => (item.user.get('uid') === game.get('player1id')))[0].ratio));
-            }
-            else {
-              userRanked.points += 0.5;
             }
           }
         }
