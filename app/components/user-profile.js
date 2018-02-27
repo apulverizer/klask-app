@@ -10,13 +10,12 @@ export default Component.extend({
   allgames: null,
   store: inject(),
   arenaid: localStorage.getItem('arenaId'),
-  user: computed('allusers', function(){
-    let userid = this.get('userid');
-    let user = this.get('allusers').filterBy('uid', userid)[0];
-    return user;
+  profileUser: null,
+  user: computed('profileUser', function(){
+    return this.get('profileUser').objectAt(0);
   }),
-  userid: computed('session', function(){
-    return this.get('session.currentUser.uid');
+  userid: computed('user', function(){
+    return this.get('user').get('uid');
   }),
   rank: computed('allgames.@each.{player1score,player2score,player1id,player2id,arenaid}', function(){
     var games = this.get('allgames');
