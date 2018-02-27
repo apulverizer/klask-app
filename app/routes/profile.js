@@ -6,7 +6,9 @@ import { inject } from '@ember/service';
 export default Route.extend({
   session: inject(),
   queryParams: {
-    userId: ''
+    userId: {
+      refreshModel: true
+    }
   },
   beforeModel() {
     if (!this.get('session.currentUser')){
