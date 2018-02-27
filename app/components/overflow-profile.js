@@ -15,7 +15,7 @@ export default Component.extend({
       this.get('router').transitionTo('/');
     },
     viewProfile: function() {
-      this.get('router').transitionTo('profile');
+      this.get('router').transitionTo('profile', {queryParams: {userId: undefined}});
     },
     changeArena: function() {
       this.get('router').transitionTo('arenas');
