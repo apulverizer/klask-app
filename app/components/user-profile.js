@@ -10,10 +10,6 @@ export default Component.extend({
   allgames: null,
   store: inject(),
   arenaid: localStorage.getItem('arenaId'),
-  profileUser: null,
-  user: computed('profileUser', function(){
-    return this.get('profileUser').objectAt(0);
-  }),
   userid: computed('user', function(){
     return this.get('user').get('uid');
   }),

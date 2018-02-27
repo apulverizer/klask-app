@@ -15,9 +15,11 @@ export default Route.extend({
   },
   model(params) {
     return RSVP.hash({
-      profileUser: this.get('store').query('user', {
+      user: this.get('store').query('user', {
         orderBy: 'uid',
         equalTo: params.userId || this.get('session.currentUser.uid')
+      }).then(function(users){
+        return users.objectAt(0);
       }),
       users: this.get('store').findAll('user'),
       games: this.get('store').findAll('game'),
