@@ -1,8 +1,12 @@
 <div class="container_arenas">
 
-  <div class="arenas-joined-container">
-    <div>Previously joined arenas</div>
+  <div class="arena-form-container">
+    <div class="form-title text-center">Join a new arena</div>
+    {{arena-input joinNewArena=(action 'joinNewArena')}}
+  </div>
 
+  <div class="arenas-joined-container">
+    <div class="form-title text-center">Or Join existing arena</div>
     {{#paper-list}}
       {{#arena-list selectExistingArena=(action 'selectExistingArena') as |selectExistingArena|}}
         {{#each model as |arena|}}
@@ -10,13 +14,9 @@
         {{/each}}
       {{/arena-list}}
     {{/paper-list}}
-
-    <div>{{paper-divider}}</div>
-  </div>
-
-  <div class="arena-form-container">
-    <div class="form-title">Find people playing in the same klask arena</div>
-    {{arena-input joinNewArena=(action 'joinNewArena')}}
+    <div class="form-title">{{paper-divider}}</div>
+    <div class="text-justify"> {{paper-icon "info"}} Find people playing in the same klask arena by entering your arena id. <
+      br>If you’ve joined an arena before, tap on the arena.</div>
   </div>
 
 </div>

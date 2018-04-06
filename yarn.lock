@@ -2423,7 +2423,7 @@ ember-cli-babel@5.1.6:
     ember-cli-version-checker "^1.0.2"
     resolve "^1.1.2"
 
-ember-cli-babel@^5.1.6, ember-cli-babel@^5.2.4:
+ember-cli-babel@^5.1.6, ember-cli-babel@^5.1.7, ember-cli-babel@^5.2.4:
   version "5.2.8"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-5.2.8.tgz#0356b03cc3fdff5d0f2ecaa46a0e1cfaebffd876"
   dependencies:
@@ -2874,6 +2874,13 @@ ember-native-dom-helpers@^0.5.4:
   dependencies:
     broccoli-funnel "^1.1.0"
     ember-cli-babel "^6.6.0"
+
+ember-paper-expansion-panel@^0.0.1:
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/ember-paper-expansion-panel/-/ember-paper-expansion-panel-0.0.1.tgz#c8cf800be60bddecb3f11a856a6fa1daa5c04f12"
+  dependencies:
+    ember-cli-babel "^5.1.7"
+    ember-cli-htmlbars "^1.1.1"
 
 ember-paper@^1.0.0-beta.4:
   version "1.0.0-beta.4"

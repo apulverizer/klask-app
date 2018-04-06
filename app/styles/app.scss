@@ -1,4 +1,6 @@
+// Define desired color palettes.
 @import 'ember-paper';
+@import 'ember-paper-expansion-panel';
 
 /*
  * Copyright 2016 Google Inc.
@@ -24,6 +26,14 @@
 
 * {
   box-sizing: border-box; }
+
+.text-center {
+  text-align: center;
+}
+
+.text-justify {
+  text-align: justify;
+}
 
 html, body {
   padding: 0;
@@ -274,6 +284,7 @@ md-menu-content {
   width: 100%;
 
   .arenas-joined-container {
+    width: 300px;
     .paper-divider {
       border-top-color: white;
       width: 100%;
@@ -332,4 +343,9 @@ md-menu-content {
     height: 40px;
     width: 100%;
   }
+}
+
+// for arena arrow
+md-input-container.md-default-theme > md-icon, md-input-container > md-icon {
+  color: white;
 }
