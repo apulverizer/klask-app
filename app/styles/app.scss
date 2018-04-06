@@ -280,8 +280,26 @@ md-menu-content {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  justify-content: center;
+  padding-top: 100px;
+  // justify-content: center;
   width: 100%;
+
+  .arena-send-icon {
+    padding-top: 10px;
+    color: white;
+  }
+
+  md-expansion-panel {
+    background: transparent;
+    box-shadow: none;
+
+    md-expansion-panel-content {
+      overflow-x: auto;
+      overflow-y: auto;
+      scroll-behavior: auto;
+      max-height: 200px;
+    }
+  }
 
   .arenas-joined-container {
     width: 300px;
@@ -345,7 +363,6 @@ md-menu-content {
   }
 }
 
-// for arena arrow
-md-input-container.md-default-theme > md-icon, md-input-container > md-icon {
-  color: white;
+.flex {
+  display: flex;
 }
