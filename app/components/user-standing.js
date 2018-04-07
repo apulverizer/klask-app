@@ -6,13 +6,14 @@ export default Component.extend({
   user: null,
   tagName: 'li',
   userRanked: null,
+  router: inject(),
   displayStat: 'Win %',
   classNames: ['mdl-list__item mdl-list__item--two-line mdl-js-ripple-effect'],
   store: inject(),
   session: inject(),
   actions: {
     viewProfile() {
-      console.log("Not Implemented");
+      this.get('router').transitionTo('profile', {queryParams: {userId: this.get('userRanked.user.uid')}});
     },
     showLoseDialog() {
       this.toggleProperty('loseDialog');
