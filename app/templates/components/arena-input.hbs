@@ -1,11 +1,7 @@
-<form action="#">
-    {{!-- {{input enter=(action joinNewArena) class="mdl-textfield__input" type="text" id="sample3"}} --}}
-  
-  {{paper-input class="paper-input-container" label="Enter your Arena URL" value=name onChange=(action (mut name))}}
-
-  {{input enter=(action joinNewArena) value="Join arena" type="submit" id="input-join-arena"}}
-</form>
-
-
-
-{{yield (action joinNewArena)}}
+{{#paper-form class="flex" onSubmit=(action joinNewArena name) as |form|}}
+  {{paper-input class="paper-input-container" label="Enter Arena Name" value=name onChange=(action (mut name)) enter=(action joinNewArena)}}
+  {{#paper-button class="arena-submit-button" iconButton=true onClick=(action joinNewArena name)}}
+    {{paper-icon "send" class="arena-send-icon"}}
+  {{/paper-button}}
+{{/paper-form}}
+{{yield}}

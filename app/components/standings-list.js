@@ -1,59 +1,66 @@
 import Component from '@ember/component';
 import { inject } from '@ember/service';
 import { computed } from '@ember/object';
+import getStandings from '../utils/standings';
 
 export default Component.extend({
-  // tagName: 'ul',
-  // classNames: ['demo-list-two mdl-list'],
+  init() {
+    this._super(...arguments);
+    this.dateFilters = ['All Time', 'Last 30 Days', 'Last 7 Days', 'Today'];
+    this.rankTypes = ['Win %', 'Wins', 'Goal Dif', 'Points', 'Games'];
+  },
+  tagName: 'ul',
+  classNames: ['demo-list-two mdl-list'],
   store: inject(),
   allusers: null,
   allgames: null,
-  usersRanked: computed('allusers','allgames.@each.{player1score,player2score,player1id,player2id,arenaid}', function(){
+  rankTypeIndex: 0,
+  rankType: computed('rankTypeIndex', function(){
+    return this.get('rankTypes').objectAt(this.get('rankTypeIndex'));
+  }),
+  dateFilterIndex: 0,
+  dateFilter: computed('dateFilterIndex', function(){
+    return this.get('dateFilters').objectAt(this.get('dateFilterIndex'));
+  }),
+  minDate: computed('dateFilter', 'allgames', 'allusers', function(){
+    let dateFilter = this.get('dateFilter');
+    if (dateFilter === 'All Time'){
+      return 0;
+    }
+    else if (dateFilter === 'Last 30 Days'){
+      let d = new Date();
+      return d.setDate(d.getDate()-30)/1000;
+    }
+    else if (dateFilter === 'Last 7 Days'){
+      let d = new Date();
+      return d.setDate(d.getDate()-7)/1000;
+    }
+    else if (dateFilter === 'Today'){
+      let d = new Date();
+      return d.setHours(0,0,0,0)/1000;
+    }
+    else {
+      return 0;
+    }
+  }),
+  usersRanked: computed('allusers', 'rankType', 'dateFilter', 'allgames.@each.{player1score,player2score,player1id,player2id,arenaid}', function(){
+    // get current arena from local storage
+    var arenaId = localStorage.getItem('arenaId');
     // calculate win/loss for each user somehow
     var games = this.get('allgames');
+    games = games.filter((item, index, self) => (item.get('arenaid') === arenaId && item.get('datetime') >= this.get('minDate')));
     var users = this.get('allusers');
     var uid = this.get('userid');
-    // get current arena from local storage
-    var currentArenaId = localStorage.getItem('arenaId');
-    var userRanks = [];
-    users.forEach(function(user){
-      let areansjoined = user.get('arenasjoined') || [];
-      // filter by current arena
-      if (areansjoined.indexOf(currentArenaId) != -1){
-        let userid = user.get('uid');
-        let name = user.get('name');
-        let wins = games.filter((item, index, self) => (item.get('player2id') === userid && item.get('player2score') === 6) || (item.get('player1id') == userid && item.get('player1score') === 6)).get('length');
-        let losses = games.filter((item, index, self) => (item.get('player2id') === userid && item.get('player2score') != 6) || (item.get('player1id') == userid && item.get('player1score') != 6)).get('length');
-        let ratio = wins/(wins+losses) || 0;
-        userRanks.push({
-          user: user,
-          ratio: ratio,
-          wins: wins,
-          name: name
-        });
-      }
-    });
-    let usersRanked = userRanks.sort(function(a,b){
-        if (a.ratio > b.ratio) {
-          return -1;
-        }
-        if (a.ratio < b.ratio) {
-          return 1;
-        }
-        if (a.wins > b.wins){
-          return -1;
-        }
-        if (b.wins > a.wins){
-          return 1;
-        }
-        if (a.name > b.name){
-          return 1;
-        }
-        if (b.name > a.name){
-          return -1;
-        }
-        return 0;
-    }).map(a => a.user);
-    return usersRanked;
-  })
+    return getStandings(games, users, uid, arenaId, this.get('rankType'));
+  }),
+
+  actions: {
+    changeDateFilter(){
+      this.set('dateFilterIndex', (this.get('dateFilterIndex') + 1) % this.get('dateFilters').length);
+    },
+    changeRankType(){
+      this.set('rankTypeIndex', (this.get('rankTypeIndex') + 1) % this.get('rankTypes').length);
+    }
+  }
+
 });

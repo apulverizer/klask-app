@@ -12,46 +12,55 @@ export default Controller.extend({
   },
   actions:{
     selectExistingArena(arenaId) {
-      console.log("message", arenaId);
       localStorage.setItem('arenaId', arenaId);
       this.transitionToRoute('standings');
     },
     joinNewArena(arenaName) {
-      console.log(arenaName);
-      var parentThis = this;
+      var self = this;
+      var arenaid = null;
       this.getArenas(arenaName)
       .then(function(arenas){
         // if there is a matching arena
         if (arenas.get('length') === 1){
           // we need to add the user the list of joined arenas
           var arena = arenas.objectAt(0);
+          arenaid = arena.get('aid');
           let joinedUsers = arena.get('joinedusers') || [];
-          if (joinedUsers.indexOf(parentThis.get('session.currentUser.uid')) === -1){
-            joinedUsers.push(parentThis.get('session.currentUser.uid'));
+          if (joinedUsers.indexOf(self.get('session.currentUser.uid')) === -1){
+            joinedUsers.push(self.get('session.currentUser.uid'));
             arena.set('joinedusers', joinedUsers);
-            arena.save();
+            return arena.save();
           }
-          // get the current user
-          let user = parentThis.get('store').query('user',{
-            orderBy: 'uid',
-            equalTo: parentThis.get('session.currentUser.uid')
-          })
-          // check if user is part of the arena already
-          // if not, then append the arena id to the users profile.arenasjoined
-          .then(function(users){
-            let user = users.objectAt(0);
-            let existingArenas = user.get('arenasjoined') || [];
-            let arenaid = arenas.objectAt(0).get('aid');
-            if (existingArenas.indexOf(arenaid) === -1){
-              existingArenas.push(arenaid);
-              user.set('arenasjoined', existingArenas);
-              user.save();
-              localStorage.setItem('arenaId', arenaid);
-              // transistion to standings
-              parentThis.transitionToRoute('standings');
-            }
-          });
+          return Promise.resolve();
         }
+        return Promise.reject("Invalid Arena");
+      })
+      .then(function(){
+        // get the current user
+        return self.get('store').query('user',{
+          orderBy: 'uid',
+          equalTo: self.get('session.currentUser.uid')
+        })
+      })
+      .then(function(users){
+        // check if user is part of the arena already
+        // if not, then append the arena id to the users profile.arenasjoined
+        let user = users.objectAt(0);
+        let existingArenas = user.get('arenasjoined') || [];
+        if (existingArenas.indexOf(arenaid) === -1){
+          existingArenas.push(arenaid);
+          user.set('arenasjoined', existingArenas);
+          // update the user
+          return user.save();
+        }
+        // already part of arena so it's fine
+        return Promise.resolve();
+      })
+      .then(function(){
+        // set the arena id in local storage
+        localStorage.setItem('arenaId', arenaid);
+        // transistion to standings
+        self.transitionToRoute('standings');
       });
     }
   }

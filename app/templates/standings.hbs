@@ -1,22 +1,5 @@
 {{klask-header title="Standings" users=model.users}}
 
-{{#paper-list class="standings-subheader"}}
-  {{#paper-item as |controls|}}
-  <div class="md-primary-container">
-    {{#controls.button secondary=true onClick="more info" class="sort-timespan"}}
-        Last 7 days
-      {{/controls.button}}
-  </div>
-
-    {{!-- <p>Clicking the button to the right will fire the secondary action</p> --}}
-    <div class="md-secondary-container">
-      {{#controls.button secondary=true onClick="more info" class="sort-rank"}}
-        Win %
-      {{/controls.button}}
-    </div>
-  {{/paper-item}}
-{{/paper-list}}
-
 <main class="main standings">
   {{#paper-list class="standings-list"}}
     {{ standings-list allusers=model.users allgames=model.games }}

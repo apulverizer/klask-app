@@ -1,3 +1,24 @@
+{{!-- <li class="subheader mdl-list__item">
+    <span {{action "changeDateFilter"}} class="mdl-list__item-primary-content">{{dateFilter}}</span>
+    <span {{action "changeRankType"}} class="mdl-list__item-secondary-content">{{rankType}}</span>
+</li> --}}
+
+{{#paper-list class="standings-subheader"}}
+  {{#paper-item as |controls|}}
+  <div class="md-primary-container">
+    {{#controls.button secondary=true onClick=(action "changeDateFilter") class="sort-timespan"}}
+        {{dateFilter}}
+      {{/controls.button}}
+  </div>
+
+    {{!-- <p>Clicking the button to the right will fire the secondary action</p> --}}
+    <div class="md-secondary-container">
+      {{#controls.button secondary=true onClick=(action "changeRankType") class="sort-rank"}}
+        {{rankType}}
+      {{/controls.button}}
+    </div>
+  {{/paper-item}}
+{{/paper-list}}
 {{#each usersRanked as |user|}}
-  {{user-standing user=user allusers=allusers allgames=allgames}}
+  {{user-standing userRanked=user allusers=allusers allgames=allgames displayStat=rankType}}
 {{/each}}

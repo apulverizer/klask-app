@@ -1,8 +1,22 @@
 {{!-- <span class="rank_num">{{rank}}</span>
+<span class="rank_num">{{userRanked.rank}}</span>
 <span class="mdl-list__item-primary-content">
-    <img class="material-icons mdl-list__item-avatar" src="{{user.photourl}}"/>
-    <span>{{user.name}}</span>
-    <span class="mdl-list__item-sub-title">{{user.nickname}}</span>
+    <img class="material-icons mdl-list__item-avatar" src="{{userRanked.user.photourl}}"/>
+    <span>{{userRanked.user.name}}</span>
+    <span class="mdl-list__item-sub-title">{{userRanked.user.nickname}}</span>
+</span>
+<span class="mdl-list__item-secondary-content win_percentage">
+  {{#if (eq displayStat 'Win %')}}
+    {{userRanked.ratio}}%
+  {{else if (eq displayStat 'Wins')}}
+    {{userRanked.wins}}
+  {{else if (eq displayStat 'Goal Dif')}}
+    {{userRanked.goalDif}}
+  {{else if (eq displayStat 'Points')}}
+    {{userRanked.points}}
+  {{else if (eq displayStat 'Games')}}
+    {{userRanked.games}}
+  {{/if}}
 </span>
 <span class="mdl-list__item-secondary-content win_percentage">{{winPercentage}}%</span>
 <span class="mdl-ripple"></span>
@@ -10,22 +24,35 @@
 
 {{#paper-item class="md-2-line" onClick="showDialog"}}
     <div class="left">
-        <span>{{rank}}</span>
+        <span>{{userRanked.rank}}</span>
     </div>
     
-    <img src={{user.photourl}} alt={{item.name}} class="md-avatar">
+    <img src={{userRanked.user.photourl}} alt={{userRanked.user.name}} class="md-avatar">
 
     <div class="md-list-item-text standings">
         
         <div class="middle">
-            <h3>{{user.name}}</h3>
-            <h4>{{user.nickname}}</h4>
+            <h3>{{userRanked.user.name}}</h3>
+            <h4>{{userRanked.user.nickname}}</h4>
         </div>
 
         <div class="right">
-            <span>{{winPercentage}}%</span>
+            <span>
+            {{#if (eq displayStat 'Win %')}}
+                {{userRanked.ratio}}%
+            {{else if (eq displayStat 'Wins')}}
+                {{userRanked.wins}}
+            {{else if (eq displayStat 'Goal Dif')}}
+                {{userRanked.goalDif}}
+            {{else if (eq displayStat 'Points')}}
+                {{userRanked.points}}
+            {{else if (eq displayStat 'Games')}}
+                {{userRanked.games}}
+            {{/if}}
+            </span>
         </div>
     </div>
 {{/paper-item}}
 
 {{paper-divider}}
+<span class="mdl-ripple"></span>
