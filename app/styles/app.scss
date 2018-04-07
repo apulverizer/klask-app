@@ -271,6 +271,16 @@ md-menu-content {
       // justify-content: center;
     }
 
+    .md-button.md-icon-button.btn-score-toggle.selected {
+      background-color: white;
+      color: black;
+
+      &:hover {
+        background-color: white;
+        color: black;
+      }
+    }
+
     .md-button.md-icon-button.btn-score-toggle {
       align-items: center;
       background-color: rgba(153,112,194,0.25);
@@ -284,7 +294,7 @@ md-menu-content {
       max-width: 48px;
 
       &:hover {
-        background-color: lighten(rgba(153,112,194,0.25), 20%);
+        background-color: lighten(rgba(209, 209, 209, 0.25), 20%);
       }
 
       &:last-of-type {
@@ -658,5 +668,12 @@ md-menu-content {
       border-radius: 50%;
       width: 22px;
     }
+  }
+}
+
+.radio-score-card {
+  color: white;
+  span {
+    padding: 5px;
   }
 }

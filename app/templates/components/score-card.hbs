@@ -1,0 +1,149 @@
+  {{#if win}}
+    {{#paper-dialog class="flex-77 dialog-win" onClose=(action closeDialog "cancel") origin=dialogOrigin clickOutsideToClose=true}}
+        {{#paper-toolbar class="dialog-toolbar score-submit"}}
+        {{#paper-toolbar-tools}}
+            <h2>What was {{user.nickname}}'s final score?</h2>
+            <span class="flex"></span>
+        {{/paper-toolbar-tools}}
+        {{/paper-toolbar}}
+        
+
+        {{#paper-dialog-content}}
+            <div class="layout-row">
+            {{#if (eq score 0)}}
+                {{#paper-button class="btn-score-toggle selected" iconButton=true onClick="score0"}}
+                <span class="btn-score-toggle">0</span>
+                {{/paper-button}}
+            {{else}}
+                {{#paper-button class="btn-score-toggle" iconButton=true onClick="score0"}}
+                <span class="btn-score-toggle">0</span>
+                {{/paper-button}}
+            {{/if}}
+            {{#if (eq score 1)}}
+                {{#paper-button class="btn-score-toggle selected" iconButton=true onClick="score1"}}
+                <span class="btn-score-toggle">1</span>
+                {{/paper-button}}
+            {{else}}
+                {{#paper-button class="btn-score-toggle" iconButton=true onClick="score1"}}
+                <span class="btn-score-toggle">1</span>
+                {{/paper-button}}
+            {{/if}}
+             {{#if (eq score 2)}}
+                {{#paper-button class="btn-score-toggle selected" iconButton=true onClick="score2"}}
+                <span class="btn-score-toggle">2</span>
+                {{/paper-button}}
+            {{else}}
+                {{#paper-button class="btn-score-toggle" iconButton=true onClick="score2"}}
+                <span class="btn-score-toggle">2</span>
+                {{/paper-button}}
+            {{/if}}
+             {{#if (eq score 3)}}
+                {{#paper-button class="btn-score-toggle selected" iconButton=true onClick="score3"}}
+                <span class="btn-score-toggle">3</span>
+                {{/paper-button}}
+            {{else}}
+                {{#paper-button class="btn-score-toggle" iconButton=true onClick="score3"}}
+                <span class="btn-score-toggle">3</span>
+                {{/paper-button}}
+            {{/if}}
+             {{#if (eq score 4)}}
+                {{#paper-button class="btn-score-toggle selected" iconButton=true onClick="score4"}}
+                <span class="btn-score-toggle">4</span>
+                {{/paper-button}}
+            {{else}}
+                {{#paper-button class="btn-score-toggle" iconButton=true onClick="score4"}}
+                <span class="btn-score-toggle">4</span>
+                {{/paper-button}}
+            {{/if}}
+             {{#if (eq score 5)}}
+                {{#paper-button class="btn-score-toggle selected" iconButton=true onClick="score5"}}
+                <span class="btn-score-toggle">5</span>
+                {{/paper-button}}
+            {{else}}
+                {{#paper-button class="btn-score-toggle" iconButton=true onClick="score5"}}
+                <span class="btn-score-toggle">5</span>
+                {{/paper-button}}
+            {{/if}}
+        </div>
+        {{/paper-dialog-content}}
+
+        {{#paper-dialog-actions class="layout-row win"}}
+        {{#paper-button onClick=(action closeDialog)}}Cancel{{/paper-button}}
+        {{#paper-button onClick=(action "submitScore")}}Submit score{{/paper-button}}
+        {{/paper-dialog-actions}}
+    {{/paper-dialog}}
+{{else}}
+    {{#paper-dialog class="flex-77 dialog-lose" onClose=(action closeDialog "cancel") origin=dialogOrigin clickOutsideToClose=true}}
+        {{#paper-toolbar class="dialog-toolbar score-submit"}}
+        {{#paper-toolbar-tools}}
+            <h2>What was {{user.nickname}}'s final score?</h2>
+            <span class="flex"></span>
+        {{/paper-toolbar-tools}}
+        {{/paper-toolbar}}
+
+        {{#paper-dialog-content}}
+        <div class="layout-row">
+            {{#if (eq score 0)}}
+                {{#paper-button class="btn-score-toggle selected" iconButton=true onClick="score0"}}
+                <span class="btn-score-toggle">0</span>
+                {{/paper-button}}
+            {{else}}
+                {{#paper-button class="btn-score-toggle" iconButton=true onClick="score0"}}
+                <span class="btn-score-toggle">0</span>
+                {{/paper-button}}
+            {{/if}}
+            {{#if (eq score 1)}}
+                {{#paper-button class="btn-score-toggle selected" iconButton=true onClick="score1"}}
+                <span class="btn-score-toggle">1</span>
+                {{/paper-button}}
+            {{else}}
+                {{#paper-button class="btn-score-toggle" iconButton=true onClick="score1"}}
+                <span class="btn-score-toggle">1</span>
+                {{/paper-button}}
+            {{/if}}
+             {{#if (eq score 2)}}
+                {{#paper-button class="btn-score-toggle selected" iconButton=true onClick="score2"}}
+                <span class="btn-score-toggle">2</span>
+                {{/paper-button}}
+            {{else}}
+                {{#paper-button class="btn-score-toggle" iconButton=true onClick="score2"}}
+                <span class="btn-score-toggle">2</span>
+                {{/paper-button}}
+            {{/if}}
+             {{#if (eq score 3)}}
+                {{#paper-button class="btn-score-toggle selected" iconButton=true onClick="score3"}}
+                <span class="btn-score-toggle">3</span>
+                {{/paper-button}}
+            {{else}}
+                {{#paper-button class="btn-score-toggle" iconButton=true onClick="score3"}}
+                <span class="btn-score-toggle">3</span>
+                {{/paper-button}}
+            {{/if}}
+             {{#if (eq score 4)}}
+                {{#paper-button class="btn-score-toggle selected" iconButton=true onClick="score4"}}
+                <span class="btn-score-toggle">4</span>
+                {{/paper-button}}
+            {{else}}
+                {{#paper-button class="btn-score-toggle" iconButton=true onClick="score4"}}
+                <span class="btn-score-toggle">4</span>
+                {{/paper-button}}
+            {{/if}}
+             {{#if (eq score 5)}}
+                {{#paper-button class="btn-score-toggle selected" iconButton=true onClick="score5"}}
+                <span class="btn-score-toggle">5</span>
+                {{/paper-button}}
+            {{else}}
+                {{#paper-button class="btn-score-toggle" iconButton=true onClick="score5"}}
+                <span class="btn-score-toggle">5</span>
+                {{/paper-button}}
+            {{/if}}
+        </div>
+        {{/paper-dialog-content}}
+
+        {{#paper-dialog-actions class="layout-row lose"}}
+        {{#paper-button onClick=(action closeDialog "cancel")}}Cancel{{/paper-button}}
+        {{#paper-button onClick=(action "submitScore" "ok")}}Submit score{{/paper-button}}
+        {{/paper-dialog-actions}}
+    {{/paper-dialog}}
+{{/if}}
+{{yield (action closeDialog)}}

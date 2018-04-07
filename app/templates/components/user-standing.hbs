@@ -61,81 +61,11 @@
 {{/paper-menu}}
 
 {{#if loseDialog}}
-  {{#paper-dialog class="flex-77 dialog-lose" onClose=(action "closeLoseDialog" "cancel") origin=dialogOrigin clickOutsideToClose=true}}
-    {{#paper-toolbar class="dialog-toolbar score-submit"}}
-      {{#paper-toolbar-tools}}
-        <h2>What was your final score?</h2>
-        <span class="flex"></span>
-      {{/paper-toolbar-tools}}
-    {{/paper-toolbar}}
-
-    {{#paper-dialog-content}}
-      <div class="layout-row">
-        {{#paper-button class="btn-score-toggle" iconButton=true}}
-          <span class="btn-score-toggle">0</span>
-        {{/paper-button}}
-        {{#paper-button class="btn-score-toggle" iconButton=true}}
-          <span class="btn-score-toggle">1</span>
-        {{/paper-button}}
-        {{#paper-button class="btn-score-toggle" iconButton=true}}
-          <span class="btn-score-toggle">2</span>
-        {{/paper-button}}
-        {{#paper-button class="btn-score-toggle" iconButton=true}}
-          <span class="btn-score-toggle">3</span>
-        {{/paper-button}}
-        {{#paper-button class="btn-score-toggle" iconButton=true}}
-          <span class="btn-score-toggle">4</span>
-        {{/paper-button}}
-        {{#paper-button class="btn-score-toggle" iconButton=true}}
-          <span class="btn-score-toggle">5</span>
-        {{/paper-button}}
-      </div>
-    {{/paper-dialog-content}}
-
-    {{#paper-dialog-actions class="layout-row lose"}}
-      {{#paper-button onClick=(action "closeLoseDialog" "cancel")}}Cancel{{/paper-button}}
-      {{#paper-button onClick=(action "closeLoseDialog" "ok")}}Submit score{{/paper-button}}
-    {{/paper-dialog-actions}}
-  {{/paper-dialog}}
+  {{score-card user=userRanked.user win=false closeDialog=(action "closeLoseDialog")}}
 {{/if}}
 
 {{#if winDialog}}
-  {{#paper-dialog class="flex-77 dialog-win" onClose=(action "closeWinDialog" "cancel") origin=dialogOrigin clickOutsideToClose=true}}
-    {{#paper-toolbar class="dialog-toolbar score-submit"}}
-      {{#paper-toolbar-tools}}
-        <h2>What was Pulverizer's final score?</h2>
-        <span class="flex"></span>
-      {{/paper-toolbar-tools}}
-    {{/paper-toolbar}}
-
-    {{#paper-dialog-content}}
-      <div class="layout-row">
-        {{#paper-button class="btn-score-toggle" iconButton=true}}
-          <span class="btn-score-toggle">0</span>
-        {{/paper-button}}
-        {{#paper-button class="btn-score-toggle" iconButton=true}}
-          <span class="btn-score-toggle">1</span>
-        {{/paper-button}}
-        {{#paper-button class="btn-score-toggle" iconButton=true}}
-          <span class="btn-score-toggle">2</span>
-        {{/paper-button}}
-        {{#paper-button class="btn-score-toggle" iconButton=true}}
-          <span class="btn-score-toggle">3</span>
-        {{/paper-button}}
-        {{#paper-button class="btn-score-toggle" iconButton=true}}
-          <span class="btn-score-toggle">4</span>
-        {{/paper-button}}
-        {{#paper-button class="btn-score-toggle" iconButton=true}}
-          <span class="btn-score-toggle">5</span>
-        {{/paper-button}}
-      </div>
-    {{/paper-dialog-content}}
-
-    {{#paper-dialog-actions class="layout-row win"}}
-      {{#paper-button onClick=(action "closeWinDialog" "cancel")}}Cancel{{/paper-button}}
-      {{#paper-button onClick=(action "closeWinDialog" "ok")}}Submit score{{/paper-button}}
-    {{/paper-dialog-actions}}
-  {{/paper-dialog}}
+  {{score-card user=userRanked.user win=true closeDialog=(action "closeWinDialog")}}
 {{/if}}
 
 
