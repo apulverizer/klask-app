@@ -324,67 +324,73 @@ md-menu-content {
  /*****************************************************************/
  
  // Standings
-.standings md-list {
+.standings 
 
-  md-divider.md-default-theme, md-divider {
-    border-top-color: rgba(255, 255, 255, 0.2);
-  }
+  md-list {
 
-  md-menu {
-    width: 100%;
-  }
-  
-  li {
-    padding-left: 0;
-    padding-right: 0;
-  }
-
-  md-list-item {
-    // padding: 16px 0;
-    width: 100%;
-  }
-
-  .left {
-    // border: 1px solid #9FDE5A;
-    margin-left: -8px;
-    margin-right: 16px;
-    min-width: 24px;
-    text-align: center;
-
-    span {
-      color: #9FDE5A;
-      font-size: 14px;
-    }
-  }
-
-  h3, h4, span {
-    font-family: 'komika slick', sans-serif;
-  }
-
-  md-list-item .md-list-item-text.standings {
-    display: flex;
-
-    .middle {
-      // border: 1px solid red;
-      flex: 2;
+    md-divider.md-default-theme, md-divider {
+      border-top-color: rgba(255, 255, 255, 0.2);
     }
 
-    .right {
-      // border: 1px solid cyan;
-      margin-left: 16px;
+    md-menu {
+      width: 100%;
+    }
+    
+    li {
+      padding-left: 0;
+      padding-right: 0;
     }
 
-    h3 {
-      color: rgba(255, 255, 255, 1);
+    md-list-item {
+      // padding: 16px 0;
+      width: 100%;
     }
 
-    h4, .right > span {
-      color: rgba(255, 255, 255, 0.7);
-      font-size: 14px;
+    .left {
+      // border: 1px solid #9FDE5A;
+      margin-left: -8px;
+      margin-right: 16px;
+      margin-top: auto;
+      margin-bottom: auto;
+      min-width: 24px;
+      text-align: center;
+
+      span {
+        color: #9FDE5A;
+        font-size: 20px;
+      }
     }
 
+    h3, h4, span {
+      font-family: 'komika slick', sans-serif;
+    }
+
+    md-list-item .md-list-item-text.standings {
+      display: flex;
+
+      .middle {
+        // border: 1px solid red;
+        flex: 2;
+      }
+
+      .right {
+        // border: 1px solid cyan;
+        margin-left: 16px;
+        margin-top: auto;
+        margin-bottom: auto;
+      }
+
+      h3 {
+        color: rgba(255, 255, 255, 1);
+      }
+
+      h4, .right > span {
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 14px;
+      }
+
+    }
   }
-}
  
 
 
