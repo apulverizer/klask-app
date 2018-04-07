@@ -1,58 +1,144 @@
-{{!-- <span class="rank_num">{{rank}}</span>
-<span class="rank_num">{{userRanked.rank}}</span>
-<span class="mdl-list__item-primary-content">
-    <img class="material-icons mdl-list__item-avatar" src="{{userRanked.user.photourl}}"/>
-    <span>{{userRanked.user.name}}</span>
-    <span class="mdl-list__item-sub-title">{{userRanked.user.nickname}}</span>
-</span>
-<span class="mdl-list__item-secondary-content win_percentage">
-  {{#if (eq displayStat 'Win %')}}
-    {{userRanked.ratio}}%
-  {{else if (eq displayStat 'Wins')}}
-    {{userRanked.wins}}
-  {{else if (eq displayStat 'Goal Dif')}}
-    {{userRanked.goalDif}}
-  {{else if (eq displayStat 'Points')}}
-    {{userRanked.points}}
-  {{else if (eq displayStat 'Games')}}
-    {{userRanked.games}}
-  {{/if}}
-</span>
-<span class="mdl-list__item-secondary-content win_percentage">{{winPercentage}}%</span>
-<span class="mdl-ripple"></span>
- --}}
-
-{{#paper-item class="md-2-line" onClick="showDialog"}}
-    <div class="left">
-        <span>{{userRanked.rank}}</span>
-    </div>
-    
-    <img src={{userRanked.user.photourl}} alt={{userRanked.user.name}} class="md-avatar">
-
-    <div class="md-list-item-text standings">
+{{#paper-menu offset="0 80" as |menu|}}
+  {{#menu.trigger}}
+    {{#paper-item class="md-2-line"}}
+        <div class="left">
+            <span>{{userRanked.rank}}</span>
+        </div>
         
-        <div class="middle">
-            <h3>{{userRanked.user.name}}</h3>
-            <h4>{{userRanked.user.nickname}}</h4>
-        </div>
+        <img src={{userRanked.user.photourl}} alt={{userRanked.user.name}} class="md-avatar">
 
-        <div class="right">
-            <span>
-            {{#if (eq displayStat 'Win %')}}
-                {{userRanked.ratio}}%
-            {{else if (eq displayStat 'Wins')}}
-                {{userRanked.wins}}
-            {{else if (eq displayStat 'Goal Dif')}}
-                {{userRanked.goalDif}}
-            {{else if (eq displayStat 'Points')}}
-                {{userRanked.points}}
-            {{else if (eq displayStat 'Games')}}
-                {{userRanked.games}}
-            {{/if}}
-            </span>
+        <div class="md-list-item-text standings">
+            
+            <div class="middle">
+                <h3>{{userRanked.user.name}}</h3>
+                <h4>{{userRanked.user.nickname}}</h4>
+            </div>
+
+            <div class="right">
+                <span>
+                {{#if (eq displayStat 'Win %')}}
+                    {{userRanked.ratio}}%
+                {{else if (eq displayStat 'Wins')}}
+                    {{userRanked.wins}}
+                {{else if (eq displayStat 'Goal Dif')}}
+                    {{userRanked.goalDif}}
+                {{else if (eq displayStat 'Points')}}
+                    {{userRanked.points}}
+                {{else if (eq displayStat 'Games')}}
+                    {{userRanked.games}}
+                {{/if}}
+                </span>
+            </div>
         </div>
-    </div>
-{{/paper-item}}
+    {{/paper-item}}
+  {{/menu.trigger}}
+  {{#menu.content class="user-standing-menu-content" width=4 as |content|}}
+
+    {{#content.menu-item onClick="viewProfile"}}
+      <img class="paper-icon md-font material-icons md-default-theme" src="assets/images/icons/profile.svg">
+      <span>View Profile</span>
+    {{/content.menu-item}}
+
+    {{#unless userRanked.isSignedInUser}}
+        {{#content.menu-item onClick="challengeUser"}}
+        <img class="paper-icon md-font material-icons md-default-theme" src="assets/images/icons/challenge.svg">
+        <span>Challenge</span>
+        {{/content.menu-item}}
+
+        {{#content.menu-item onClick="showWinDialog"}}
+        <img class="paper-icon md-font material-icons md-default-theme" src="assets/images/icons/thumbs_up.svg">
+        <span>You Beat {{userRanked.user.name}}</span>
+        {{/content.menu-item}}
+
+        {{#content.menu-item onClick="showLoseDialog"}}
+        <img class="paper-icon md-font material-icons md-default-theme" src="assets/images/icons/thumbs_down.svg">
+        <span>You Lost to {{userRanked.user.name}}</span>
+        {{/content.menu-item}}
+    {{/unless}}
+
+    {{paper-divider}}
+  {{/menu.content}}
+{{/paper-menu}}
+
+{{#if loseDialog}}
+  {{#paper-dialog class="flex-77 dialog-lose" onClose=(action "closeLoseDialog" "cancel") origin=dialogOrigin clickOutsideToClose=true}}
+    {{#paper-toolbar class="dialog-toolbar score-submit"}}
+      {{#paper-toolbar-tools}}
+        <h2>What was your final score?</h2>
+        <span class="flex"></span>
+      {{/paper-toolbar-tools}}
+    {{/paper-toolbar}}
+
+    {{#paper-dialog-content}}
+      <div class="layout-row">
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">0</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">1</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">2</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">3</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">4</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">5</span>
+        {{/paper-button}}
+      </div>
+    {{/paper-dialog-content}}
+
+    {{#paper-dialog-actions class="layout-row lose"}}
+      {{#paper-button onClick=(action "closeLoseDialog" "cancel")}}Cancel{{/paper-button}}
+      {{#paper-button onClick=(action "closeLoseDialog" "ok")}}Submit score{{/paper-button}}
+    {{/paper-dialog-actions}}
+  {{/paper-dialog}}
+{{/if}}
+
+{{#if winDialog}}
+  {{#paper-dialog class="flex-77 dialog-win" onClose=(action "closeWinDialog" "cancel") origin=dialogOrigin clickOutsideToClose=true}}
+    {{#paper-toolbar class="dialog-toolbar score-submit"}}
+      {{#paper-toolbar-tools}}
+        <h2>What was Pulverizer's final score?</h2>
+        <span class="flex"></span>
+      {{/paper-toolbar-tools}}
+    {{/paper-toolbar}}
+
+    {{#paper-dialog-content}}
+      <div class="layout-row">
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">0</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">1</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">2</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">3</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">4</span>
+        {{/paper-button}}
+        {{#paper-button class="btn-score-toggle" iconButton=true}}
+          <span class="btn-score-toggle">5</span>
+        {{/paper-button}}
+      </div>
+    {{/paper-dialog-content}}
+
+    {{#paper-dialog-actions class="layout-row win"}}
+      {{#paper-button onClick=(action "closeWinDialog" "cancel")}}Cancel{{/paper-button}}
+      {{#paper-button onClick=(action "closeWinDialog" "ok")}}Submit score{{/paper-button}}
+    {{/paper-dialog-actions}}
+  {{/paper-dialog}}
+{{/if}}
+
+
 
 {{paper-divider}}
 <span class="mdl-ripple"></span>

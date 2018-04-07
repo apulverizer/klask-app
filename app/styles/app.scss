@@ -329,6 +329,10 @@ md-menu-content {
   md-divider.md-default-theme, md-divider {
     border-top-color: rgba(255, 255, 255, 0.2);
   }
+
+  md-menu {
+    width: 100%;
+  }
   
   li {
     padding-left: 0;
@@ -629,4 +633,24 @@ md-menu-content {
 
 .flex {
   display: flex;
+}
+
+.user-standing-menu-content {
+  border: 1px dotted #9FDE5A;
+  width: 95%;
+  md-menu-content.md-default-theme, md-menu-content {
+    background: black;
+  }
+  // background: black;
+  span {
+    color: white;
+    padding: 8px;
+  }
+  md-menu-item:first-child {
+
+    img {
+      border-radius: 50%;
+      width: 22px;
+    }
+  }
 }

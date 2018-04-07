@@ -9,5 +9,22 @@ export default Component.extend({
   displayStat: 'Win %',
   classNames: ['mdl-list__item mdl-list__item--two-line mdl-js-ripple-effect'],
   store: inject(),
-  session: inject()
+  session: inject(),
+  actions: {
+    viewProfile() {
+      console.log("Not Implemented");
+    },
+    showLoseDialog() {
+      this.toggleProperty('loseDialog');
+    },
+    showWinDialog() {
+      this.toggleProperty('winDialog');
+    },
+    closeLoseDialog() {
+      this.toggleProperty('loseDialog');
+    },
+    closeWinDialog() {
+      this.toggleProperty('winDialog');
+    }
+  }
 });

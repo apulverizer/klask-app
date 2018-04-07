@@ -15,6 +15,7 @@ export default function getStandings(games, users, uid, arenaId, rankType) {
       let gaPlayer2scores = games.filter((item, index, self) => (item.get('player2id') === userid)).map(item => item.get('player1score')).reduce(function(a, b) { return a + b; }, 0);
       let gaPlayer1scores = games.filter((item, index, self) => (item.get('player1id') === userid)).map(item => item.get('player2score')).reduce(function(a, b) { return a + b; }, 0);
       let goalsAgainst = gaPlayer2scores + gaPlayer1scores;
+      let isSignedInUser = user.get('uid') === uid;
       userRanks.push({
         user: user,
         ratio: ratio,
@@ -24,6 +25,7 @@ export default function getStandings(games, users, uid, arenaId, rankType) {
         goalsAgainst: goalsAgainst,
         goalDif: goalsFor - goalsAgainst,
         games: wins+losses,
+        isSignedInUser: isSignedInUser
       });
     }
   });
