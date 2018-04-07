@@ -564,29 +564,44 @@ md-menu-content {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  padding-top: 100px;
-  // justify-content: center;
+  // 50% viewport height - height of helper area + divider & its margins
+  padding-top: calc(50vh - 122px + 32px);
   width: 100%;
 
-  .arena-send-icon {
-    padding-top: 10px;
-    color: white;
-  }
+  .arena-form-container {
+    margin-bottom: 8px;
+    padding: 0 16px;
+    width: 100%;
 
-  md-expansion-panel {
-    background: transparent;
-    box-shadow: none;
+    form {
+      height: 72px;
+      position: relative;
+    }
 
-    md-expansion-panel-content {
-      overflow-x: auto;
-      overflow-y: auto;
-      scroll-behavior: auto;
-      max-height: 200px;
+    .md-button.md-icon-button {
+      bottom: 21px;
+      margin-right: 0;
+      padding-right: 0;
+      position: absolute;
+      right: 0;
     }
   }
 
+  .arena-send-icon {
+    color: white;
+  }
+
+  .divider-dotted {
+    border: 0.5px dotted rgba(255, 255, 255, 0.4);
+    margin: 16px 0;
+    width: 100%;
+  }
+
   .arenas-joined-container {
-    width: 300px;
+    margin-bottom: 8px;
+    padding: 0 16px;
+    width: 100%;
+
     .paper-divider {
       border-top-color: white;
       width: 100%;
@@ -601,6 +616,45 @@ md-menu-content {
     .paper-icon {
       color: white;
     }
+
+    md-expansion-panel {
+      background: transparent;
+      box-shadow: none;
+
+
+      &.md-open {
+        margin-bottom: 0;
+      }
+      
+      md-list-item._md-button-wrap > div.md-button:first-child {
+        padding: 0;
+      }
+
+      .md-button {
+        padding: 0;
+      }
+
+      .md-panel-title {
+        font-weight: normal;
+        max-width: none;
+      }
+
+      md-list-item .md-no-style.md-button {
+        font-size: 16px;
+      }
+  
+      md-expansion-panel-content {
+        max-height: 200px;
+        overflow-x: auto;
+        overflow-y: auto;
+        padding: 0;
+        scroll-behavior: auto;
+      }
+  
+      md-icon {
+        margin-left: 0;
+      }
+    }
   }
 
   .form-title {
@@ -610,20 +664,22 @@ md-menu-content {
   .paper-input-container {
     width: 100%;
     
+
     label {
       color: rgba(255, 255, 255, 0.5);
-      font-size: 22px;
+      font-size: 16px;
       padding-bottom: 8px;
     }
 
     input {
       border-color: rgba(255, 255, 255, 0.7);
-      font-size: 22px;
     }
   }
 
-  .paper-input-container.md-focused.md-input-focused {
+  .paper-input-container.md-focused.md-input-focused,
+  .paper-input-container.md-default-theme.md-input-has-value {
     font-family: 'komika slick', sans-serif;
+    
     label {
       color: rgba(255, 255, 255, 1);
       font-size: 16px;
@@ -632,6 +688,9 @@ md-menu-content {
     input {
       border-color: rgba(255, 255, 255, 1);
       color: rgba(255, 255, 255, 1);
+      font-family: 'komika slick', sans-serif;
+      font-size: 16px;
+      padding-bottom: 8px;
     }
   }
 
@@ -645,6 +704,24 @@ md-menu-content {
     height: 40px;
     width: 100%;
   }
+}
+
+.arena-helper {
+  display: flex;
+  padding: 16px;
+
+  md-icon {
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
+  }
+
+  div {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    line-height: 1.5;
+    padding-left: 32px;
+  }
+
 }
 
 .flex {
