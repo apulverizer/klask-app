@@ -40,10 +40,10 @@
     {{/content.menu-item}}
 
     {{#unless userRanked.isSignedInUser}}
-        {{#content.menu-item onClick="challengeUser"}}
+        {{!-- {{#content.menu-item onClick="challengeUser"}}
         <img class="paper-icon md-font material-icons md-default-theme" src="assets/images/icons/challenge.svg">
         <span>Challenge</span>
-        {{/content.menu-item}}
+        {{/content.menu-item}} --}}
 
         {{#content.menu-item onClick="showWinDialog"}}
         <img class="paper-icon md-font material-icons md-default-theme" src="assets/images/icons/thumbs_up.svg">
@@ -61,14 +61,12 @@
 {{/paper-menu}}
 
 {{#if loseDialog}}
-  {{score-card user=userRanked.user win=false closeDialog=(action "closeLoseDialog")}}
+  {{score-card opponent=userRanked.user win=false closeDialog=(action "closeLoseDialog")}}
 {{/if}}
 
 {{#if winDialog}}
-  {{score-card user=userRanked.user win=true closeDialog=(action "closeWinDialog")}}
+  {{score-card opponent=userRanked.user win=true closeDialog=(action "closeWinDialog")}}
 {{/if}}
-
-
 
 {{paper-divider}}
 <span class="mdl-ripple"></span>

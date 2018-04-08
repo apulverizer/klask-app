@@ -2,7 +2,7 @@
     {{#paper-dialog class="flex-77 dialog-win" onClose=(action closeDialog "cancel") origin=dialogOrigin clickOutsideToClose=true}}
         {{#paper-toolbar class="dialog-toolbar score-submit"}}
         {{#paper-toolbar-tools}}
-            <h2>What was {{user.nickname}}'s final score?</h2>
+            <h2>What was {{opponent.nickname}}'s final score?</h2>
             <span class="flex"></span>
         {{/paper-toolbar-tools}}
         {{/paper-toolbar}}
@@ -76,7 +76,7 @@
     {{#paper-dialog class="flex-77 dialog-lose" onClose=(action closeDialog "cancel") origin=dialogOrigin clickOutsideToClose=true}}
         {{#paper-toolbar class="dialog-toolbar score-submit"}}
         {{#paper-toolbar-tools}}
-            <h2>What was {{user.nickname}}'s final score?</h2>
+            <h2>What was your final score?</h2>
             <span class="flex"></span>
         {{/paper-toolbar-tools}}
         {{/paper-toolbar}}
