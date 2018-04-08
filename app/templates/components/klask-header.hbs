@@ -1,5 +1,8 @@
 {{#paper-toolbar}}
   {{#paper-toolbar-tools}}
+    {{#if showBackButton}}
+      {{!-- Do something --}}
+    {{/if}}
     <h2>{{title}}</h2>
     <span class="flex"></span>
     {{#if showEditButotn}}
@@ -12,7 +15,7 @@
       {{overflow-profile user=user class="image-profile"}}
     {{/if}}
     {{#if showOtherProfileButton}}
-      {{overflow-profile user=user class="image-profile"}}
+      {{!-- Do something --}}
     {{/if}}
   {{/paper-toolbar-tools}}
 {{/paper-toolbar}}

@@ -6,6 +6,7 @@ export default Component.extend({
   session: inject(),
   title: null,
   username: null,
+  showBackButton: false,
   // profile buttons are mutually exclusive
   showMyProfileButton: false,
   showOtherProfileButton: computed('showMyProfileButton', function(){
