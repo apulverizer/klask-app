@@ -25,7 +25,8 @@ export default Route.extend({
       }),
       users: this.get('store').findAll('user'),
       games: this.get('store').findAll('game'),
-      arenas: this.get('store').findAll('arena')
+      arenas: this.get('store').findAll('arena'),
+      isCurrentUser: (params.userId === undefined) || (params.userId === this.get('session.currentUser.uid'))
     });
   }
 });

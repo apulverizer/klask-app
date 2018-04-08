@@ -8,7 +8,10 @@
     {{#if showSwapButton}}
       {{!-- Do something --}}
     {{/if}}
-    {{#if showProfileButton}}
+    {{#if showMyProfileButton}}
+      {{overflow-profile user=user class="image-profile"}}
+    {{/if}}
+    {{#if showOtherProfileButton}}
       {{overflow-profile user=user class="image-profile"}}
     {{/if}}
   {{/paper-toolbar-tools}}
