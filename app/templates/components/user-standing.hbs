@@ -1,20 +1,73 @@
-<span class="rank_num">{{userRanked.rank}}</span>
-<span class="mdl-list__item-primary-content">
-    <img class="material-icons mdl-list__item-avatar" src="{{userRanked.user.photourl}}"/>
-    <span>{{userRanked.user.name}}</span>
-    <span class="mdl-list__item-sub-title">{{userRanked.user.nickname}}</span>
-</span>
-<span class="mdl-list__item-secondary-content win_percentage">
-  {{#if (eq displayStat 'Win %')}}
-    {{userRanked.ratio}}%
-  {{else if (eq displayStat 'Wins')}}
-    {{userRanked.wins}}
-  {{else if (eq displayStat 'Goal Dif')}}
-    {{userRanked.goalDif}}
-  {{else if (eq displayStat 'Points')}}
-    {{userRanked.points}}
-  {{else if (eq displayStat 'Games')}}
-    {{userRanked.games}}
-  {{/if}}
-</span>
+{{#paper-menu offset="0 80" as |menu|}}
+  {{#menu.trigger}}
+    {{#paper-item class="md-2-line"}}
+        <div class="left user-rank">
+            <span>{{userRanked.rank}}</span>
+        </div>
+        
+        <img src={{userRanked.user.photourl}} alt={{userRanked.user.name}} class="md-avatar">
+
+        <div class="md-list-item-text standings">
+            
+            <div class="middle">
+                <h3>{{userRanked.user.name}}</h3>
+                <h4>{{userRanked.user.nickname}}</h4>
+            </div>
+
+            <div class="right">
+                <span>
+                {{#if (eq displayStat 'Win %')}}
+                    {{userRanked.ratio}}%
+                {{else if (eq displayStat 'Wins')}}
+                    {{userRanked.wins}}
+                {{else if (eq displayStat 'Goal Dif')}}
+                    {{userRanked.goalDif}}
+                {{else if (eq displayStat 'Points')}}
+                    {{userRanked.points}}
+                {{else if (eq displayStat 'Games')}}
+                    {{userRanked.games}}
+                {{/if}}
+                </span>
+            </div>
+        </div>
+    {{/paper-item}}
+  {{/menu.trigger}}
+  {{#menu.content class="user-standing-menu-content" width=4 as |content|}}
+
+    {{#content.menu-item onClick="viewProfile"}}
+      {{!-- <img class="paper-icon md-font material-icons md-default-theme" src="assets/images/icons/profile.svg"> --}}
+      {{paper-icon "person" class="icon-profile"}}
+      <span>View Profile</span>
+    {{/content.menu-item}}
+
+    {{#unless userRanked.isSignedInUser}}
+        {{!-- {{#content.menu-item onClick="challengeUser"}}
+        <img class="paper-icon md-font material-icons md-default-theme" src="assets/images/icons/challenge.svg">
+        <span>Challenge</span>
+        {{/content.menu-item}} --}}
+
+        {{#content.menu-item onClick="showWinDialog"}}
+        {{paper-icon "thumb-up" class="icon-thumb-up"}}
+        <span>You Beat {{userRanked.user.name}}</span>
+        {{/content.menu-item}}
+
+        {{#content.menu-item onClick="showLoseDialog"}}
+        {{paper-icon "thumb-down" class="icon-thumb-down"}}
+        <span>You Lost to {{userRanked.user.name}}</span>
+        {{/content.menu-item}}
+    {{/unless}}
+
+    {{paper-divider}}
+  {{/menu.content}}
+{{/paper-menu}}
+
+{{#if loseDialog}}
+  {{score-card opponent=userRanked.user win=false closeDialog=(action "closeLoseDialog")}}
+{{/if}}
+
+{{#if winDialog}}
+  {{score-card opponent=userRanked.user win=true closeDialog=(action "closeWinDialog")}}
+{{/if}}
+
+{{paper-divider}}
 <span class="mdl-ripple"></span>

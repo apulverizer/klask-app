@@ -6,5 +6,6 @@ export default DS.Model.extend({
   player1id: DS.attr('string'),
   player2id: DS.attr('string'),
   player1score: DS.attr('number'),
-  player2score: DS.attr('number')
+  player2score: DS.attr('number'),
+  gid: DS.attr('string')
 });

@@ -12,9 +12,13 @@ export default Component.extend({
   tagName: 'ul',
   classNames: ['demo-list-two mdl-list'],
   store: inject(),
+  session: inject(),
   allusers: null,
   allgames: null,
   rankTypeIndex: 0,
+  userid: computed('session', function(){
+    return this.get('session.currentUser.uid');
+  }),
   rankType: computed('rankTypeIndex', function(){
     return this.get('rankTypes').objectAt(this.get('rankTypeIndex'));
   }),
