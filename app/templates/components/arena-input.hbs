@@ -1,5 +1,7 @@
-{{#paper-form onSubmit=(action joinNewArena name) as |form|}}
-  {{paper-input class="paper-input-container" label="Enter your Arena URL" value=name onChange=(action (mut name))}}
-  {{input enter=(action joinNewArena) value="Join Arena" type="submit" id="input-join-arena"}}
+{{#paper-form class="flex" onSubmit=(action joinNewArena name) as |form|}}
+  {{paper-input class="paper-input-container" label="Enter Arena URL" value=name onChange=(action 'textChanged') enter=(action joinNewArena)}}
+  {{#paper-button disabled=disabled class="arena-submit-button" iconButton=true onClick=(action joinNewArena name)}}
+    {{paper-icon "send" class="arena-send-icon"}}
+  {{/paper-button}}
 {{/paper-form}}
 {{yield}}
