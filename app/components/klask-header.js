@@ -6,6 +6,9 @@ export default Component.extend({
   session: inject(),
   title: null,
   username: null,
+  showProfileButton: false,
+  showEditButton: false,
+  showSwapButton: false,
   userid: computed('session', function(){
     return this.get('session.currentUser.uid');
   }),
