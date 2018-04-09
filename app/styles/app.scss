@@ -96,6 +96,14 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
     font-family: 'komika slick', sans-serif;
     font-size: 20px;
   }
+
+  md-icon {
+    color: #FFF;
+  }
+
+  .btn-back {
+    margin-right: 8px;
+  }
 }
 
 .standings-subheader {
@@ -811,4 +819,26 @@ md-menu-content {
       border-radius: 4px;
     }
   }
+}
+.menu-overflow-your-profile {
+
+  md-menu-content {
+    background-color: #000;
+    border: 0.5px dotted rgba(255, 255, 255, 0.85);
+    border-radius: 4px;
+  }
+
+  md-menu-item {
+    color: #FFF;
+
+    button md-icon {
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .icon-sign-out {
+      margin-right: 16px;
+      opacity: 0.85;
+    }
+  }
+
 }
