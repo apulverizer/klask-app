@@ -1,9 +1,11 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { inject } from '@ember/service';
+import moment from 'moment';
 
 export default Component.extend({
   classNameBindings: ['isWin:win'],
+  classNames: ['mdl-list__item mdl-list__item--two-line mdl-js-ripple-effect', 'profile-game'],
   session: inject(),
   game: null,
   allusers: null,
@@ -17,5 +19,16 @@ export default Component.extend({
     let player1id = this.get('game').get('player1id');
     let isPlayer1 = this.get('userid') == player1id;
     return (isPlayer1 && (player1score > player2score)) || (!isPlayer1 && (player2score > player1score));
-  })
+  }),
+  formattedDate: computed('game.datetime', 'game', function(){
+    let d = moment(this.get('game.datetime')*1000);
+    return d.format('dddd, MMM Do • h:mm a');
+  }),
+  actions: {
+    deleteGame: function(){
+      let game=this.get('game');
+      game.destroyRecord();
+      game.save();
+    }
+  }
 });
