@@ -24,6 +24,9 @@ export default Component.extend({
     let d = moment(this.get('game.datetime')*1000);
     return d.format('dddd, MMM Do • h:mm a');
   }),
+  isCurrentUser: computed('userid', function(){
+    return this.get('userid') === this.get('session.currentUser.uid');
+  }),
   actions: {
     deleteGame: function(){
       let game=this.get('game');

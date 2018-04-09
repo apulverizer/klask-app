@@ -34,13 +34,13 @@
         {{/paper-item}}
     {{/content.menu-item}}
 
-    {{#content.menu-item onClick="deleteGame"}}
-      {{!-- <img class="paper-icon md-font material-icons md-default-theme" src="assets/images/icons/profile.svg"> --}}
-      {{paper-icon "delete" class="delete-icon"}}
-      <span>Delete Game</span>
-    {{/content.menu-item}}
-
-
+    {{#if isCurrentUser}}
+        {{#content.menu-item onClick="deleteGame"}}
+        {{paper-icon "delete" class="delete-icon"}}
+        <span>Delete Game</span>
+        {{/content.menu-item}}
+    {{/if}}
+    
     {{paper-divider}}
   {{/menu.content}}
 {{/paper-menu}}
