@@ -3,20 +3,19 @@
   {{#menu.trigger}}
     {{#paper-button iconButton=true}}
       <img src="{{user.photourl}}"/>
-      {{!-- {{paper-icon "account_circle" class="md-menu-origin"}} --}}
     {{/paper-button}}
   {{/menu.trigger}}
 
-  {{#menu.content width=4 as |content|}}
+  {{#menu.content class="menu-overflow-your-profile" width=4 as |content|}}
 
-    {{#content.menu-item}}
+    {{!-- {{#content.menu-item}}
       <img src="{{user.photourl}}"/>
       <span>{{user.name}}</span>
-    {{/content.menu-item}}
+    {{/content.menu-item}} --}}
 
-    <div class="menu-divider">
+    {{!-- <div class="menu-divider">
       {{paper-divider}}
-    </div>
+    </div> --}}
 
     {{#content.menu-item onClick="viewProfile"}}
       {{paper-icon "person" class="md-menu-align-target"}}
@@ -33,7 +32,8 @@
       Need to figure this out later..
     --}}
     {{#content.menu-item onClick="signOut"}}
-      {{paper-icon "exit_to_app" class="md-menu-align-target"}}
+      {{!-- {{paper-icon "exit_to_app" class="md-menu-align-target"}} --}}
+      <img class="md-menu-align-target paper-icon md-font material-icons md-default-theme icon-sign-out" src="assets/images/icons/ic_sign_out.svg">
       <span>Sign out</span>
     {{/content.menu-item}}
 

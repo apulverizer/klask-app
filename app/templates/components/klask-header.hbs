@@ -1,21 +1,29 @@
 {{#paper-toolbar}}
   {{#paper-toolbar-tools}}
     {{#if showBackButton}}
-      {{!-- Do something --}}
+      {{#paper-button class="btn-back" iconButton=true onClick="goBack"}}
+        {{paper-icon "arrow-back"}}
+      {{/paper-button}}
     {{/if}}
     <h2>{{title}}</h2>
     <span class="flex"></span>
-    {{#if showEditButotn}}
-      {{!-- Do something --}}
-    {{/if}}
+    {{!-- {{#if showEditButton}}
+      {{#paper-button iconButton=true}}
+        {{paper-icon "edit"}}
+      {{/paper-button}}
+    {{/if}} --}}
     {{#if showSwapButton}}
-      {{!-- Do something --}}
+      {{#paper-button iconButton=true onClick="changeArena"}}
+        {{paper-icon "swap-vert"}}
+      {{/paper-button}}
+    {{/if}}
+    {{#if showSignOutButton}}
+    {{#paper-button iconButton=true onClick="signOut"}}
+      <img class="paper-icon md-font material-icons md-default-theme" src="assets/images/icons/ic_sign_out.svg">
+    {{/paper-button}}
     {{/if}}
     {{#if showMyProfileButton}}
       {{overflow-profile user=user class="image-profile"}}
-    {{/if}}
-    {{#if showOtherProfileButton}}
-      {{!-- Do something --}}
     {{/if}}
   {{/paper-toolbar-tools}}
 {{/paper-toolbar}}

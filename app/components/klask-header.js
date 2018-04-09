@@ -4,6 +4,8 @@ import { inject } from '@ember/service';
 
 export default Component.extend({
   session: inject(),
+  router: inject(),
+  store: inject(),
   title: null,
   username: null,
   showBackButton: false,
@@ -14,6 +16,7 @@ export default Component.extend({
   }),
   showEditButton: false,
   showSwapButton: false,
+  showSignOutButton: false,
   userid: computed('session', function(){
     return this.get('session.currentUser.uid');
   }),
@@ -22,4 +25,18 @@ export default Component.extend({
     let user = this.get('users').filterBy('uid', userid)[0];
     return user;
   }),
+  actions: {
+    goBack(){
+      history.back();
+    },
+    signOut: function() {
+      this.get('session').close();
+      this.get('store').unloadAll();
+      localStorage.removeItem('arenaId');
+      this.get('router').transitionTo('/');
+    },
+    changeArena: function() {
+      this.get('router').transitionTo('arenas');
+    }
+  }
 });
