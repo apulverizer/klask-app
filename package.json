@@ -27,6 +27,7 @@
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",
     "ember-cli-inject-live-reload": "^1.4.1",
+    "ember-cli-moment-shim": "^3.6.0",
     "ember-cli-qunit": "^4.1.1",
     "ember-cli-sass": "^7.1.4",
     "ember-cli-shims": "^1.2.0",
@@ -36,6 +37,7 @@
     "ember-data": "~2.18.0",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
+    "ember-moment": "^7.6.0",
     "ember-paper": "^1.0.0-beta.4",
     "ember-paper-expansion-panel": "^0.0.1",
     "ember-resolver": "^4.0.0",
@@ -49,6 +51,7 @@
     "emberfire": "^2.0.8",
     "eslint-plugin-ember": "^5.0.0",
     "loader.js": "^4.2.3",
+    "moment": "^2.22.0",
     "torii": "^0.9.6"
   },
   "engines": {

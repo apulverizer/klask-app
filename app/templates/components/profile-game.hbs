@@ -1,8 +1,49 @@
-<li class="mdl-list__item mdl-list__item--two-line">
-    <span class="mdl-list__item-primary-content">
-        <img class="material-icons mdl-list__item-avatar" src="{{opponent.photourl}}"/>
-        <span>{{opponent.nickname}}</span>
-        <span class="mdl-list__item-sub-title">{{opponent.name}}</span>
-    </span>
-    <span class="score {{if isWin 'score_win' 'score_lose'}} mdl-list__item-secondary-content">{{game.player1score}} - {{game.player2score}}</span>
-</li>
+{{#paper-menu offset="0 80" as |menu|}}
+  {{#menu.trigger}}
+    {{#paper-item class="md-2-line profile-game"}}
+        <img src={{opponent.photourl}} alt={{opponent.name}} class="md-avatar">
+
+        <div class="md-list-item-text">
+            
+            <div class="middle">
+                <h3>{{opponent.name}}</h3>
+                <h4>{{opponent.nickname}}</h4>
+            </div>
+
+            <div class="right">
+                <span class="score {{if isWin 'score_win' 'score_lose'}} mdl-list__item-secondary-content">{{game.player1score}} - {{game.player2score}}</span>
+            </div>
+        </div>
+    {{/paper-item}}
+  {{/menu.trigger}}
+  {{#menu.content class="profile-menu-content" width=4 as |content|}}
+
+    {{#content.menu-item}}
+        {{#paper-item class="md-2-line"}}
+        <img src={{opponent.photourl}} alt={{opponent.name}} class="md-avatar left">
+        <div class="md-list-item-text">
+            <div class="middle">
+                {{#if isWin}}
+                    <h3>{{user.nickname}} beat {{opponent.nickname}} {{game.player1score}} - {{game.player2score}}</h3>
+                {{else}}
+                    <h4>{{user.nickname}} lost to {{opponent.nickname}} {{game.player1score}} - {{game.player2score}}</h4>
+                {{/if}}
+                <h4>{{formattedDate}}</h4>
+            </div>
+        </div>
+        {{/paper-item}}
+    {{/content.menu-item}}
+
+    {{#if isCurrentUser}}
+        {{#content.menu-item onClick="deleteGame"}}
+        {{paper-icon "delete" class="delete-icon"}}
+        <span>Delete Game</span>
+        {{/content.menu-item}}
+    {{/if}}
+    
+    {{paper-divider}}
+  {{/menu.content}}
+{{/paper-menu}}
+
+{{paper-divider}}
+<span class="mdl-ripple"></span>

@@ -6,11 +6,11 @@
     {{profile-stats wins=wins losses=losses winPercentage=winPercentage goalsFor=goalsFor goalsAgainst=goalsAgainst}}
 </ul>
 
-<ul class="demo-list-item mdl-list row_with_subheader games_list">
+<ul class="demo-list-item mdl-list row_with_subheader">
   <li class="subheader mdl-list__item">
       <span class="mdl-list__item-primary-content">Games</span>
   </li>
   {{#each games as |game|}}
-    {{profile-game userid=userid game=game allusers=allusers}}
+    {{profile-game userid=userid game=game allusers=allusers user=user}}
   {{/each}}
 </ul>
