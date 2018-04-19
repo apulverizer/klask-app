@@ -7,7 +7,7 @@ module.exports = function(/* environment, appConfig */) {
 
   return {
       short_name: "Klask",
-      name: "Klask (an Esri Apps production)",
+      name: "Klask Standings",
       icons: [
         {
           src: "/assets/images/launcher-icon-1x.png",
