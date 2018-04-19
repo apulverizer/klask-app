@@ -787,6 +787,10 @@ md-menu-content {
 
   md-list-item .md-no-style {
     padding: unset;
+
+    .md-avatar {
+      margin-top: 16px;
+    }
   }
 
   .md-list-item-text {
@@ -805,10 +809,16 @@ md-menu-content {
     }
 
     h3, h4 {
-      color: rgba(255, 255, 255, 1);
-      font-family: 'komika slick', sans-serif;
+      font-family: $komika;
       font-weight: 400;
-      font-display: optional;
+    }
+
+    h3 {
+      color: $klask-text-color-primary;
+    }
+
+    h4 {
+      color: $klask-text-color-secondary;
     }
 
     .score {
