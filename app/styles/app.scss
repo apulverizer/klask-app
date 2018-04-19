@@ -32,6 +32,7 @@ $klask-black: #000000;
 $klask-primary-purple: #7D34C4;
 $klask-text-color-primary: rgba(255, 255, 255, 1);
 $klask-text-color-secondary: rgba(255, 255, 255, 0.7);
+$komika: 'komika slick', sans-serif;
 
 * {
   box-sizing: border-box; }
@@ -49,7 +50,7 @@ html, body {
   margin: 0;
   height: 100%;
   width: 100%;
-  font-family: 'komika slick', sans-serif;
+  font-family: $komika;
   font-weight: 400;
   font-display: optional;
   color: #FFF;
@@ -93,7 +94,7 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
   position: fixed;
 
   h2 {
-    font-family: 'komika slick', sans-serif;
+    font-family: $komika;
     font-size: 20px;
   }
 
@@ -290,7 +291,7 @@ md-menu-content {
  // Standings
 .standings  {
   margin-top: 112px; // height of toolbar + height of standings subheader
-  
+
   md-list {
 
     md-divider.md-default-theme, md-divider {
@@ -329,7 +330,7 @@ md-menu-content {
     }
 
     h3, h4, span {
-      font-family: 'komika slick', sans-serif;
+      font-family: $komika;
     }
 
     md-list-item .md-list-item-text.standings {
@@ -374,7 +375,7 @@ md-menu-content {
 
 .mdl-list__item-primary-content span {
   color: #FFF;
-  font-family: 'komika slick', sans-serif;
+  font-family: $komika;
   text-transform: uppercase;
 }
 
@@ -384,7 +385,7 @@ md-menu-content {
 
 .rank_num {
   color: $klask-green;
-  font: 16px 'komika slick', sans-serif;
+  font: 16px $komika;
   margin-left: -16px; /*remove inherited margin */
   text-align: center;
   width: 56px;
@@ -453,15 +454,13 @@ md-menu-content {
 
 .mdl-list__item-secondary-content.win_percentage {
   color: rgba(255, 255, 255, 0.7);
-  font: 14px 'komika slick', sans-serif;
+  font: 14px $komika;
 }
 
 .mdl-list__item .score {
-  align-items: center;
-  border-radius: 2px;
-  color: #000;
-  justify-content: center;
-  padding: 8px;
+  // align-items: center;
+  // justify-content: center;
+  // padding: 8px;
 }
 
 
@@ -478,7 +477,7 @@ md-menu-content {
 
   h1 {
     color: #FFF;
-    font: 42px 'komika slick', sans-serif;
+    font: 42px $komika;
     margin: 0 0 40px;
     text-align: center;
     width: 75%;
@@ -781,8 +780,13 @@ md-menu-content {
 }
 
 .profile-game {
+  
   md-menu {
     width: 100%;
+  }
+
+  md-list-item .md-no-style {
+    padding: unset;
   }
 
   .md-list-item-text {
@@ -807,20 +811,22 @@ md-menu-content {
       font-display: optional;
     }
 
+    .score {
+      border-radius: 4px;
+      color: $klask-black;
+      font-family: $komika;
+      width: 58px;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 8px;
+    }
+
     .score_lose {
       background-color: $klask-red;
-      opacity: 1;
-      color: $klask-black;
-      padding: 2px;
-      border-radius: 4px;
     }
   
     .score_win {
       background-color: $klask-green;
-      opacity: 1;
-      color: $klask-black;
-      padding: 2px;
-      border-radius: 4px;
     }
   }
 }
