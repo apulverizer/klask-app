@@ -169,8 +169,7 @@ md-menu-content {
       -ms-flex: 1;
           flex: 1;
 
-  // height of toolbar + height of standings subheader
-  margin-top: 112px;
+  margin-top: 64px;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; }
@@ -289,8 +288,9 @@ md-menu-content {
  /*****************************************************************/
  
  // Standings
-.standings 
-
+.standings  {
+  margin-top: 112px; // height of toolbar + height of standings subheader
+  
   md-list {
 
     md-divider.md-default-theme, md-divider {
@@ -358,7 +358,7 @@ md-menu-content {
 
     }
   }
- 
+} // standings
 
 
 /*****************************************************************/
