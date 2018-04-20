@@ -1,0 +1,10 @@
+{
+    "hosting": {
+      "firebase": "klask-app",
+      "public": "dist",
+      "rewrites": [{
+        "source": "**",
+        "destination": "/index.html"
+      }]
+    }
+}
