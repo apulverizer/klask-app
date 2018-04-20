@@ -162,6 +162,10 @@ md-menu-content {
       width: 72px;
     }
   }
+
+  md-menu-item .md-button span {
+    font-size: 14px;
+  }
 }
 
 .main {
@@ -180,7 +184,7 @@ md-menu-content {
       top: 56px;
     }
     .main {
-      margin-top: 104px;
+      margin-top: 56px;
     }
   }
 
@@ -393,7 +397,6 @@ md-menu-content {
 
 #profile_row {
   background-color: rgba(153, 112, 194, 0.25);
-  margin: -4px 0 0 0;
   padding: 0;
 
   li {
@@ -417,8 +420,10 @@ md-menu-content {
   }
 
   .mdl-list__item-secondary-content {
+    height: auto;
     opacity: 0.7;
   }
+
 }
 
 .row_with_subheader {
@@ -444,6 +449,10 @@ md-menu-content {
   font-size: 14px;
 }
 
+#stats_row {
+  padding: 0;
+}
+
 #stats_row li:not(.subheader) {
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.26);
 }
@@ -455,12 +464,6 @@ md-menu-content {
 .mdl-list__item-secondary-content.win_percentage {
   color: rgba(255, 255, 255, 0.7);
   font: 14px $komika;
-}
-
-.mdl-list__item .score {
-  // align-items: center;
-  // justify-content: center;
-  // padding: 8px;
 }
 
 
@@ -726,53 +729,72 @@ md-menu-content {
     border-radius: 4px;
   }
 
+  md-menu-item:first-of-type {
+    border-bottom: 0.5px dotted $klask-green;
+    height: 56px;
+    padding-bottom: 8px;
+
+    md-list-item.md-2-line, md-list-item.md-2-line > .md-no-style {
+      height: 100%;
+      min-height: unset;
+    }
+
+    md-list-item .md-no-style {
+      padding: unset;
+    }
+  }
+
+  md-menu-item:nth-of-type(2) {
+    margin-top: 8px;
+  }
+
   span {
     color: white;
     margin-left: 16px;
   }
 
   .delete-icon {
-    color: rgba(255, 255, 255, 0.85)
+    color: rgba(255, 255, 255, 0.85);
+    margin-right: 12px;
   }
 
   md-list-item.md-2-line {
+
     .md-list-item-inner {
-      padding-left: 1px;
 
       img {
-        margin-top: 0px;
-        margin-bottom: 0px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        margin-left: -10px;
+        height: 32px;
+        margin-right: 24px;
+        margin-top: auto;
+        width: 32px;
       }
     }
     .md-list-item-text {
-      margin-top: 1px;
-      margin-bottom: 1px;
       display: flex;
 
       .middle {
-        // border: 1px solid red;
         flex: 2;
       }
 
       .right {
-        // border: 1px solid cyan;
         margin-left: 16px;
         margin-top: auto;
         margin-bottom: auto;
       }
 
       h3, h4 {
-        color: $klask-text-color-primary;
-        font-family: 'komika slick', sans-serif;
+        font-family: $komika;
         font-weight: 400;
-        font-display: optional;
+      }
+
+      h3 {
+        color: $klask-text-color-primary;
+        font-size: 14px;
       }
 
       h4 {
         color: $klask-text-color-secondary;
+        font-size: 12px;
       }
     }
   }
