@@ -32,6 +32,7 @@ $klask-black: #000000;
 $klask-primary-purple: #7D34C4;
 $klask-text-color-primary: rgba(255, 255, 255, 1);
 $klask-text-color-secondary: rgba(255, 255, 255, 0.7);
+$komika: 'komika slick', sans-serif;
 
 * {
   box-sizing: border-box; }
@@ -49,7 +50,7 @@ html, body {
   margin: 0;
   height: 100%;
   width: 100%;
-  font-family: 'komika slick', sans-serif;
+  font-family: $komika;
   font-weight: 400;
   font-display: optional;
   color: #FFF;
@@ -93,7 +94,7 @@ md-toolbar.md-default-theme:not(.md-menu-toolbar), md-toolbar:not(.md-menu-toolb
   position: fixed;
 
   h2 {
-    font-family: 'komika slick', sans-serif;
+    font-family: $komika;
     font-size: 20px;
   }
 
@@ -161,6 +162,10 @@ md-menu-content {
       width: 72px;
     }
   }
+
+  md-menu-item .md-button span {
+    font-size: 14px;
+  }
 }
 
 .main {
@@ -169,8 +174,7 @@ md-menu-content {
       -ms-flex: 1;
           flex: 1;
 
-  // height of toolbar + height of standings subheader
-  margin-top: 112px;
+  margin-top: 64px;
   overflow-x: hidden;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch; }
@@ -180,7 +184,7 @@ md-menu-content {
       top: 56px;
     }
     .main {
-      margin-top: 104px;
+      margin-top: 56px;
     }
   }
 
@@ -289,7 +293,8 @@ md-menu-content {
  /*****************************************************************/
  
  // Standings
-.standings 
+.standings  {
+  margin-top: 112px; // height of toolbar + height of standings subheader
 
   md-list {
 
@@ -323,9 +328,13 @@ md-menu-content {
         font-size: 20px;
       }
     }
+    
+    .md-2-line .md-avatar {
+      margin-top: 16px;
+    }
 
     h3, h4, span {
-      font-family: 'komika slick', sans-serif;
+      font-family: $komika;
     }
 
     md-list-item .md-list-item-text.standings {
@@ -354,7 +363,7 @@ md-menu-content {
 
     }
   }
- 
+} // standings
 
 
 /*****************************************************************/
@@ -370,7 +379,7 @@ md-menu-content {
 
 .mdl-list__item-primary-content span {
   color: #FFF;
-  font-family: 'komika slick', sans-serif;
+  font-family: $komika;
   text-transform: uppercase;
 }
 
@@ -380,7 +389,7 @@ md-menu-content {
 
 .rank_num {
   color: $klask-green;
-  font: 16px 'komika slick', sans-serif;
+  font: 16px $komika;
   margin-left: -16px; /*remove inherited margin */
   text-align: center;
   width: 56px;
@@ -388,7 +397,6 @@ md-menu-content {
 
 #profile_row {
   background-color: rgba(153, 112, 194, 0.25);
-  margin: -4px 0 0 0;
   padding: 0;
 
   li {
@@ -412,8 +420,10 @@ md-menu-content {
   }
 
   .mdl-list__item-secondary-content {
+    height: auto;
     opacity: 0.7;
   }
+
 }
 
 .row_with_subheader {
@@ -439,6 +449,10 @@ md-menu-content {
   font-size: 14px;
 }
 
+#stats_row {
+  padding: 0;
+}
+
 #stats_row li:not(.subheader) {
   box-shadow: 0 1px 0 rgba(255, 255, 255, 0.26);
 }
@@ -449,15 +463,7 @@ md-menu-content {
 
 .mdl-list__item-secondary-content.win_percentage {
   color: rgba(255, 255, 255, 0.7);
-  font: 14px 'komika slick', sans-serif;
-}
-
-.mdl-list__item .score {
-  align-items: center;
-  border-radius: 2px;
-  color: #000;
-  justify-content: center;
-  padding: 8px;
+  font: 14px $komika;
 }
 
 
@@ -474,7 +480,7 @@ md-menu-content {
 
   h1 {
     color: #FFF;
-    font: 42px 'komika slick', sans-serif;
+    font: 42px $komika;
     margin: 0 0 40px;
     text-align: center;
     width: 75%;
@@ -723,53 +729,72 @@ md-menu-content {
     border-radius: 4px;
   }
 
+  md-menu-item:first-of-type {
+    border-bottom: 0.5px dotted $klask-green;
+    height: 56px;
+    padding-bottom: 8px;
+
+    md-list-item.md-2-line, md-list-item.md-2-line > .md-no-style {
+      height: 100%;
+      min-height: unset;
+    }
+
+    md-list-item .md-no-style {
+      padding: unset;
+    }
+  }
+
+  md-menu-item:nth-of-type(2) {
+    margin-top: 8px;
+  }
+
   span {
     color: white;
     margin-left: 16px;
   }
 
   .delete-icon {
-    color: rgba(255, 255, 255, 0.85)
+    color: rgba(255, 255, 255, 0.85);
+    margin-right: 12px;
   }
 
   md-list-item.md-2-line {
+
     .md-list-item-inner {
-      padding-left: 1px;
 
       img {
-        margin-top: 0px;
-        margin-bottom: 0px;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        margin-left: -10px;
+        height: 32px;
+        margin-right: 24px;
+        margin-top: auto;
+        width: 32px;
       }
     }
     .md-list-item-text {
-      margin-top: 1px;
-      margin-bottom: 1px;
       display: flex;
 
       .middle {
-        // border: 1px solid red;
         flex: 2;
       }
 
       .right {
-        // border: 1px solid cyan;
         margin-left: 16px;
         margin-top: auto;
         margin-bottom: auto;
       }
 
       h3, h4 {
-        color: $klask-text-color-primary;
-        font-family: 'komika slick', sans-serif;
+        font-family: $komika;
         font-weight: 400;
-        font-display: optional;
+      }
+
+      h3 {
+        color: $klask-text-color-primary;
+        font-size: 14px;
       }
 
       h4 {
         color: $klask-text-color-secondary;
+        font-size: 12px;
       }
     }
   }
@@ -777,8 +802,17 @@ md-menu-content {
 }
 
 .profile-game {
+  
   md-menu {
     width: 100%;
+  }
+
+  md-list-item .md-no-style {
+    padding: unset;
+
+    .md-avatar {
+      margin-top: 16px;
+    }
   }
 
   .md-list-item-text {
@@ -797,26 +831,34 @@ md-menu-content {
     }
 
     h3, h4 {
-      color: rgba(255, 255, 255, 1);
-      font-family: 'komika slick', sans-serif;
+      font-family: $komika;
       font-weight: 400;
-      font-display: optional;
+    }
+
+    h3 {
+      color: $klask-text-color-primary;
+    }
+
+    h4 {
+      color: $klask-text-color-secondary;
+    }
+
+    .score {
+      border-radius: 4px;
+      color: $klask-black;
+      font-family: $komika;
+      width: 58px;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 8px;
     }
 
     .score_lose {
       background-color: $klask-red;
-      opacity: 1;
-      color: $klask-black;
-      padding: 2px;
-      border-radius: 4px;
     }
   
     .score_win {
       background-color: $klask-green;
-      opacity: 1;
-      color: $klask-black;
-      padding: 2px;
-      border-radius: 4px;
     }
   }
 }
@@ -833,11 +875,6 @@ md-menu-content {
 
     button md-icon {
       color: rgba(255, 255, 255, 0.85);
-    }
-
-    .icon-sign-out {
-      margin-right: 16px;
-      opacity: 0.85;
     }
   }
 

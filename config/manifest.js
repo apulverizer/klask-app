@@ -7,7 +7,7 @@ module.exports = function(/* environment, appConfig */) {
 
   return {
       short_name: "Klask",
-      name: "Klask (an Esri Apps production)",
+      name: "Klask Standings",
       icons: [
         {
           src: "/assets/images/launcher-icon-1x.png",
@@ -32,7 +32,7 @@ module.exports = function(/* environment, appConfig */) {
       ],
       start_url: "/",
       background_color: "#7D34C4",
-      theme_color: "#212121",
+      theme_color: "#642A9D",
       display: "standalone",
       orientation: "portrait"
   };
