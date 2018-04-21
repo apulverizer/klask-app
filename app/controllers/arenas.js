@@ -16,18 +16,17 @@ export default Controller.extend({
       this.transitionToRoute('standings');
     },
     joinNewArena(arenaName) {
-      var self = this;
       var arenaid = null;
       this.getArenas(arenaName)
-      .then(function(arenas){
+      .then((arenas) => {
         // if there is a matching arena
         if (arenas.get('length') === 1){
           // we need to add the user the list of joined arenas
           var arena = arenas.objectAt(0);
           arenaid = arena.get('aid');
           let joinedUsers = arena.get('joinedusers') || [];
-          if (joinedUsers.indexOf(self.get('session.currentUser.uid')) === -1){
-            joinedUsers.push(self.get('session.currentUser.uid'));
+          if (joinedUsers.indexOf(this.get('session.currentUser.uid')) === -1){
+            joinedUsers.push(this.get('session.currentUser.uid'));
             arena.set('joinedusers', joinedUsers);
             return arena.save();
           }
@@ -35,14 +34,14 @@ export default Controller.extend({
         }
         return Promise.reject("Invalid Arena");
       })
-      .then(function(){
+      .then(() => {
         // get the current user
-        return self.get('store').query('user',{
+        return this.get('store').query('user',{
           orderBy: 'uid',
-          equalTo: self.get('session.currentUser.uid')
+          equalTo: this.get('session.currentUser.uid')
         })
       })
-      .then(function(users){
+      .then((users) => {
         // check if user is part of the arena already
         // if not, then append the arena id to the users profile.arenasjoined
         let user = users.objectAt(0);
@@ -56,11 +55,13 @@ export default Controller.extend({
         // already part of arena so it's fine
         return Promise.resolve();
       })
-      .then(function(){
+      .then(() => {
         // set the arena id in local storage
         localStorage.setItem('arenaId', arenaid);
         // transistion to standings
-        self.transitionToRoute('standings');
+        this.transitionToRoute('standings');
+      }).catch((e) => {
+        console.log(e);
       });
     }
   }

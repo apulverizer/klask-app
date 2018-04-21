@@ -11,21 +11,21 @@ export default Route.extend({
     }
   },
   model: function() {
-    var parentThis=this;
+    // var parentThis=this;
     return this.get('store').query('user', {
       orderBy: 'uid',
       equalTo: this.get('session.currentUser.uid')
-    }).then(function(users) {
+    }).then((users) => {
       var arenaIds = users.objectAt(0).get('arenasjoined') || [];
       var joinedArenas = A();
-      arenaIds.forEach(function(aid){
-        parentThis.get('store').query('arena', {
+      for (let [, aid] of arenaIds.entries()) {
+        this.get('store').query('arena', {
           orderBy: 'aid',
           equalTo: aid
-        }).then(function(arenas){
+        }).then((arenas) => {
           joinedArenas.pushObject(arenas.objectAt(0));
         });
-      });
+      }
       return joinedArenas;
     });
   }

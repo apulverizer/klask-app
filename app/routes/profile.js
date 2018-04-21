@@ -19,7 +19,7 @@ export default Route.extend({
       user: this.get('store').query('user', {
         orderBy: 'uid',
         equalTo: params.userId || this.get('session.currentUser.uid')
-      }).then(function(users){
+      }).then((users) => {
         return users.objectAt(0);
       }),
       users: this.get('store').findAll('user'),
