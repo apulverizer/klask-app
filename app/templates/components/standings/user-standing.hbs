@@ -62,11 +62,11 @@
 {{/paper-menu}}
 
 {{#if loseDialog}}
-  {{score-card opponent=userRanked.user win=false closeDialog=(action "closeLoseDialog")}}
+  {{standings/score-card opponent=userRanked.user win=false closeDialog=(action "closeLoseDialog")}}
 {{/if}}
 
 {{#if winDialog}}
-  {{score-card opponent=userRanked.user win=true closeDialog=(action "closeWinDialog")}}
+  {{standings/score-card opponent=userRanked.user win=true closeDialog=(action "closeWinDialog")}}
 {{/if}}
 
 {{paper-divider}}

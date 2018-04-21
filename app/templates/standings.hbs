@@ -1,8 +1,8 @@
-{{klask-header title="Standings" users=model.users showMyProfileButton=true}}
+{{header/klask-header title="Standings" users=model.users showMyProfileButton=true}}
 
 <main class="main standings">
   {{#paper-list class="standings-list"}}
-    {{ standings-list allusers=model.users allgames=model.games }}
+    {{standings/standings-list allusers=model.users allgames=model.games}}
   {{/paper-list}}
   
 </main>

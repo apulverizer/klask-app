@@ -1,9 +1,9 @@
 <ul id="profile_row" class="demo-list-two mdl-list">
-    {{profile-info name=user.name nickname=user.nickname rank=rank image=user.photourl}}
+    {{profile/profile-info name=user.name nickname=user.nickname rank=rank image=user.photourl}}
 </ul>
 
 <ul id="stats_row" class="demo-list-item mdl-list row_with_subheader">
-    {{profile-stats wins=wins losses=losses winPercentage=winPercentage goalsFor=goalsFor goalsAgainst=goalsAgainst}}
+    {{profile/profile-stats wins=wins losses=losses winPercentage=winPercentage goalsFor=goalsFor goalsAgainst=goalsAgainst}}
 </ul>
 
 <ul class="demo-list-item mdl-list row_with_subheader">
@@ -11,6 +11,6 @@
       <span class="mdl-list__item-primary-content">Games</span>
   </li>
   {{#each games as |game|}}
-    {{profile-game userid=userid game=game allusers=allusers user=user}}
+    {{profile/profile-game userid=userid game=game allusers=allusers user=user}}
   {{/each}}
 </ul>

@@ -1,7 +1,7 @@
 import Component from '@ember/component';
 import { computed } from '@ember/object';
 import { inject } from '@ember/service';
-import getStandings from '../utils/standings';
+import getStandings from '../../utils/standings-calculator';
 
 
 export default Component.extend({
