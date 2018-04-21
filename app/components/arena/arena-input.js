@@ -1,6 +1,4 @@
 import Component from '@ember/component';
-import { inject } from '@ember/service';
-import { computed } from '@ember/object';
 import { isEmpty } from '@ember/utils';
 
 export default Component.extend({

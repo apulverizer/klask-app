@@ -9,11 +9,7 @@ export default Component.extend({
   title: null,
   username: null,
   showBackButton: false,
-  // profile buttons are mutually exclusive
   showMyProfileButton: false,
-  showOtherProfileButton: computed('showMyProfileButton', function(){
-    return !this.get('showMyProfileButton');
-  }),
   showEditButton: false,
   showSwapButton: false,
   showSignOutButton: false,

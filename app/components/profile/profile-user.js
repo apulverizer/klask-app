@@ -3,7 +3,6 @@ import { computed } from '@ember/object';
 import { inject } from '@ember/service';
 import getStandings from '../../utils/standings-calculator';
 
-
 export default Component.extend({
   session: inject(),
   allusers: null,

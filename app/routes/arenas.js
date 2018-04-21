@@ -2,7 +2,6 @@ import Route from '@ember/routing/route';
 import { inject } from '@ember/service';
 import { A } from '@ember/array';
 
-
 export default Route.extend({
   session: inject(),
   cookies: inject(),

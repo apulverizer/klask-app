@@ -15,7 +15,6 @@ export default Route.extend({
     }
   },
   model() {
-    var parentThis = this;
     return RSVP.hash({
       users: this.get('store').findAll('user'),
       games: this.get('store').query('game', {
