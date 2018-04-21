@@ -5,7 +5,6 @@ export default function getStandings(games, users, uid, arenaId, rankType) {
     // filter by current arena
     if (areansjoined.indexOf(arenaId) != -1){
       let userid = user.get('uid');
-      let name = user.get('name');
       let wins = games.filter((item, index, self) => (item.get('player2id') === userid && item.get('player2score') === 6) || (item.get('player1id') == userid && item.get('player1score') === 6)).get('length');
       let losses = games.filter((item, index, self) => (item.get('player2id') === userid && item.get('player2score') != 6) || (item.get('player1id') == userid && item.get('player1score') != 6)).get('length');
       let ratio = wins/(wins+losses) || 0;
@@ -30,9 +29,9 @@ export default function getStandings(games, users, uid, arenaId, rankType) {
     }
   });
   // calculate points based on opponent win %
-  userRanks.forEach(function(userRanked){
+  for (let [, userRanked] of userRanks.entries()) {
     userRanked.points = 0;
-    games.forEach(function(game){
+    for (let [, game] of games.entries()){
       if (userRanked.user.get('uid') === game.get('player1id') || userRanked.user.get('uid') === game.get('player2id')){
         if (userRanked.user.get('uid') === game.get('player1id')){
           if (game.get('player1score') > game.get('player2score')){
@@ -46,8 +45,8 @@ export default function getStandings(games, users, uid, arenaId, rankType) {
           }
         }
       }
-    });
-  });
+    }
+  }
   var usersRanked = userRanks.sort(sortByPercentage);
   if (rankType === 'Win %'){
     usersRanked = userRanks.sort(sortByPercentage);

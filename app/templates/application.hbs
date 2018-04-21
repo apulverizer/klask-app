@@ -1,6 +1,4 @@
 {{#if session.isAuthenticated}}
-  {{!-- Logged in as {{session.currentUser.displayName}} --}}
-  {{!-- <button {{action "signOut"}}>Sign out</button> --}}
   {{outlet}}
 {{else}}
   <div class="container_sign-in">

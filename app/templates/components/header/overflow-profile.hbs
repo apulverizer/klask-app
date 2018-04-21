@@ -8,15 +8,6 @@
 
   {{#menu.content class="menu-overflow-your-profile" width=4 as |content|}}
 
-    {{!-- {{#content.menu-item}}
-      <img src="{{user.photourl}}"/>
-      <span>{{user.name}}</span>
-    {{/content.menu-item}} --}}
-
-    {{!-- <div class="menu-divider">
-      {{paper-divider}}
-    </div> --}}
-
     {{#content.menu-item onClick="viewProfile"}}
       {{paper-icon "person" class="md-menu-align-target"}}
       <span>View profile</span>
@@ -27,10 +18,6 @@
       <span>Change arena</span>
     {{/content.menu-item}}
 
-    {{!--
-      signOut this way doesn't work. It also doesn't work if you do onclick=(action "signOut").
-      Need to figure this out later..
-    --}}
     {{#content.menu-item onClick="signOut"}}
       {{paper-icon "exit_to_app" class="md-menu-align-target"}}
       <span>Sign out</span>
