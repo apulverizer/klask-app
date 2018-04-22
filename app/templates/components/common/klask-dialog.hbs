@@ -1,0 +1,20 @@
+{{#paper-dialog class="flex-77 klask-dialog" onClose=(action cancel "cancel") origin=dialogOrigin clickOutsideToClose=true}}
+    {{#paper-list}}
+        {{#paper-item class="md-3-line"}}
+            <div class="md-list-item-text">
+            <h3>{{mainText}}</h3>
+            {{#if showSubText}}
+                <h4>{{subText}}</h4>
+            {{/if}} 
+            </div>
+        {{/paper-item}}
+    {{/paper-list}}
+    {{#paper-dialog-actions class="layout-row"}}
+        {{#if showCancelButton}}
+            <button class="md-button" {{action cancel}}>{{cancelText}}</button>
+        {{/if}}
+        {{#if showSubmitButton}}
+            <button class="md-button" {{action submit}}>{{submitText}}</button>
+        {{/if}}
+    {{/paper-dialog-actions}}
+{{/paper-dialog}}

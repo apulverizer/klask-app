@@ -877,5 +877,27 @@ md-menu-content {
       color: rgba(255, 255, 255, 0.85);
     }
   }
+}
 
+.klask-dialog {
+  border: 0.5px dotted $klask-green;
+
+  md-list md-list-item.md-3-line { 
+    .md-list-item-text {
+      h3, h4 {
+        font-family: $komika;
+        text-align: center;
+        color: #FFF;
+      }
+    }
+  }
+  md-dialog-actions .md-button {
+    background-color: white;
+    color: #261C30;
+  }
+
+  .md-button.md-default-theme:not([disabled]):hover, .md-button:not([disabled]):hover {
+    background-color: white;
+    color: #261C30;
+  }
 }
