@@ -18,17 +18,17 @@ module.exports = function(/* environment, appConfig */) {
           src: "/assets/images/launcher-icon-2x.png",
           type: "image/png",
           sizes: "96x96"
+        },
+        {
+          src: "/assets/images/launcher-icon-3x.png",
+          type: "image/png",
+          sizes: "144x144"
+        },
+        {
+          src: "/assets/images/launcher-icon-4x.png",
+          type: "image/png",
+          sizes: "512x512"
         }
-        // {
-        //   src: "/assets/images/launcher-icon-3x.png",
-        //   type: "image/png",
-        //   sizes: "144x144"
-        // },
-        // {
-        //   src: "/assets/images/launcher-icon-4x.png",
-        //   type: "image/png",
-        //   sizes: "512x512"
-        // }
       ],
       start_url: "/",
       background_color: "#7D34C4",
