@@ -37,6 +37,18 @@ $komika: 'komika slick', sans-serif;
 * {
   box-sizing: border-box; }
 
+// loading spinner
+.progress-circular-wrapper {
+  height: 100vh; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  md-progress-circular.md-default-theme path, md-progress-circular path {
+    stroke: $klask-primary-purple;
+  }
+}
+
 .text-center {
   text-align: center;
 }
