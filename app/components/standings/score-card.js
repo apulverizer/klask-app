@@ -30,6 +30,7 @@ export default Component.extend({
             })
             newGame.set('gid', newGame.get('id'));
             newGame.save().catch(function(e){
+                // eslint-disable-next-line no-console
                 console.log(e)
             })
         },

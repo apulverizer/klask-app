@@ -61,6 +61,7 @@ export default Controller.extend({
         // transistion to standings
         this.transitionToRoute('standings');
       }).catch((e) => {
+        // eslint-disable-next-line no-console
         console.log(e);
       });
     }

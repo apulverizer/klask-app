@@ -1,14 +1,23 @@
 # klask-app
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+A progressive web app to keep score of Klask games. It uses [ember](https://emberjs.com/) and [firebase](https://firebase.google.com/). 
+
+<table>
+<tr><td>
+<img src="images/standings.png" width=300/>
+</td><td>
+<img src="images/profile.png" width=300/>
+</tr>
+</table>
+
+See it live [here](https://portland-leaderboard.web.app)
 
 ## Prerequisites
 
 You will need the following things properly installed on your computer.
 
 * [Git](https://git-scm.com/)
-* [Node.js](https://nodejs.org/) (with npm)
+* [Node.js](https://nodejs.org/) (with npm/yarn)
 * [Ember CLI](https://ember-cli.com/)
 * [Google Chrome](https://google.com/chrome/)
 
@@ -16,7 +25,7 @@ You will need the following things properly installed on your computer.
 
 * `git clone <repository-url>` this repository
 * `cd klask-app`
-* `npm install`
+* `yarn install`
 
 ## Running / Development
 
